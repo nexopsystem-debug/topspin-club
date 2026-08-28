@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOPSPIN Academy & Club | Tenis de Mesa</title>
     
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png">
+    <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -269,7 +273,7 @@
                                     <!-- Quick Stats Grid inside card -->
                                     <div class="grid grid-cols-3 gap-2 mt-6 pt-4 border-t border-slate-100 text-left">
                                         <div class="bg-slate-50 p-2.5 rounded-xl text-center border border-slate-100">
-                                            <span class="font-display font-black text-lg text-brand-red block leading-none">+15</span>
+                                            <span class="font-display font-black text-lg text-brand-red block leading-none">+17</span>
                                             <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Clubes</span>
                                         </div>
                                         <div class="bg-slate-50 p-2.5 rounded-xl text-center border border-slate-100">
@@ -358,13 +362,16 @@
                                 <i class="fa-solid fa-clipboard-list text-white"></i>
                             </div>
                             <div>
-                                <h3 class="font-display font-bold text-lg uppercase tracking-wide">📋 Información del Formulario</h3>
+                                <h3 class="font-display font-bold text-lg uppercase tracking-wide">📋 Ficha Digital del Atleta</h3>
                                 <p class="text-xs text-white/80">Los campos marcados con (*) son obligatorios</p>
                             </div>
                         </div>
                         <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
                              alt="Logo" class="h-10 w-auto opacity-80 hidden sm:block">
                     </div>
+
+                    <!-- Alert message container -->
+                    <div id="formAlert" class="hidden mx-6 mt-6 sm:mx-10 p-4 rounded-2xl text-xs font-medium border"></div>
 
                     <!-- Form Content -->
                     <form id="registroForm" class="p-6 sm:p-10 space-y-8" novalidate>
@@ -500,7 +507,7 @@
                                             <i class="fa-solid fa-phone text-sm"></i>
                                         </div>
                                         <input type="tel" id="telefono" name="telefono" required
-                                               placeholder="Ej: 04121234567"
+                                               placeholder="Ej: +584129263626"
                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
                                     </div>
                                     <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa un número de teléfono</p>
@@ -516,7 +523,7 @@
                                             <i class="fa-brands fa-instagram text-sm"></i>
                                         </div>
                                         <input type="text" id="instagram" name="instagram"
-                                               placeholder="Ej: @mi_usuario"
+                                               placeholder="Ej: @topspin_academyclub"
                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
                                     </div>
                                 </div>
@@ -629,7 +636,7 @@
                                         <div class="flex items-center gap-2 text-xs text-brand-burgundy font-medium pt-1">
                                             <i class="fa-solid fa-circle-info text-brand-red text-sm"></i>
                                             <span>
-                                                Se enviará una solicitud al administrador (<strong>sigot.oficial@gmail.com</strong>) para su revisión y homologación en la lista oficial.
+                                                Se enviará una solicitud al administrador (<strong>topspin.academyclub@gmail.com</strong>) para su revisión y homologación en la lista oficial.
                                             </span>
                                         </div>
                                     </div>
@@ -678,8 +685,8 @@
                         <div class="pt-4">
                             <button type="submit" id="submitBtn" 
                                     class="w-full gradient-brand text-white font-display font-black text-base uppercase tracking-widest py-4 px-8 rounded-2xl shadow-brand-lg hover:shadow-glow-red hover:scale-[1.01] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Enviar Registro Oficial</span>
+                                <span id="submitBtnIcon"><i class="fa-solid fa-paper-plane"></i></span>
+                                <span id="submitBtnText">Enviar Registro Oficial</span>
                             </button>
                             <p class="text-center text-xs text-slate-400 mt-3">
                                 Al enviar este formulario declaras que la información ingresada es verídica y autorizas el tratamiento de datos para fines deportivos de TOPSPIN.
@@ -718,35 +725,35 @@
                         <div class="space-y-4 pt-2">
                             
                             <!-- WhatsApp / Teléfono -->
-                            <a href="https://wa.me/584121234567" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                            <a href="https://wa.me/584129263626" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
                                 <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div>
                                     <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Línea Directa / WhatsApp</span>
-                                    <span class="text-sm sm:text-base font-bold text-slate-900">+58 412-1234567</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">+58 412-9263626</span>
                                 </div>
                             </a>
 
                             <!-- Correo Oficial -->
-                            <a href="mailto:sigot.oficial@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                            <a href="mailto:topspin.academyclub@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
                                 <div class="w-12 h-12 rounded-xl gradient-brand text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
                                     <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Correo Electrónico de Contacto</span>
-                                    <span class="text-sm sm:text-base font-bold text-slate-900">sigot.oficial@gmail.com</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">topspin.academyclub@gmail.com</span>
                                 </div>
                             </a>
 
                             <!-- Instagram Oficial -->
-                            <a href="https://instagram.com/topspin_club" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                            <a href="https://instagram.com/topspin_academyclub" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
                                 <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                                     <i class="fa-brands fa-instagram"></i>
                                 </div>
                                 <div>
                                     <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Comunidad Oficial en Instagram</span>
-                                    <span class="text-sm sm:text-base font-bold text-slate-900">@topspin_club</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">@topspin_academyclub</span>
                                 </div>
                             </a>
 
@@ -856,7 +863,7 @@
             </h3>
 
             <p class="text-xs text-slate-600 mt-2 leading-relaxed" id="modalMessage">
-                Tu información ha sido registrada correctamente en el sistema de TOPSPIN Academy & Club.
+                Tu información ha sido registrada y sincronizada correctamente en la base de datos de TOPSPIN Academy & Club.
             </p>
 
             <div class="mt-6 pt-4 border-t border-slate-100 text-left bg-slate-50 p-4 rounded-xl space-y-1 text-xs text-slate-700" id="modalSummary">
@@ -873,6 +880,8 @@
     <!-- ================= JAVASCRIPT ================= -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const N8N_WEBHOOK_URL = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-registro';
+
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -890,6 +899,11 @@
             });
 
             const form = document.getElementById('registroForm');
+            const formAlert = document.getElementById('formAlert');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnIcon = document.getElementById('submitBtnIcon');
+            const submitBtnText = document.getElementById('submitBtnText');
+
             const fechaNacimientoInput = document.getElementById('fechaNacimiento');
             const edadInput = document.getElementById('edad');
             const edadHelper = document.getElementById('edadHelper');
@@ -912,6 +926,9 @@
             const closeModalBtn = document.getElementById('closeModalBtn');
             const modalMessage = document.getElementById('modalMessage');
             const modalSummary = document.getElementById('modalSummary');
+
+            let currentPhotoBase64 = '';
+            let currentPhotoName = '';
 
             function calcularEdad(fechaString) {
                 if (!fechaString) return null;
@@ -1020,6 +1037,8 @@
                     previewImg.src = e.target.result;
                     previewName.textContent = file.name;
                     previewSize.textContent = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+                    currentPhotoBase64 = e.target.result;
+                    currentPhotoName = file.name;
                     uploadPrompt.classList.add('hidden');
                     uploadPreview.classList.remove('hidden');
                 };
@@ -1029,13 +1048,16 @@
             removePhotoBtn?.addEventListener('click', (e) => {
                 e.stopPropagation();
                 fotoJugador.value = "";
+                currentPhotoBase64 = "";
+                currentPhotoName = "";
                 previewImg.src = "#";
                 uploadPreview.classList.add('hidden');
                 uploadPrompt.classList.remove('hidden');
             });
 
-            form?.addEventListener('submit', (e) => {
+            form?.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                formAlert.classList.add('hidden');
 
                 let isValid = true;
                 const requiredFields = form.querySelectorAll('[required]');
@@ -1058,6 +1080,7 @@
                     return;
                 }
 
+                const selectedClub = clubSelect.value === 'AGREGA_TU_CLUB' ? nuevoClubNombre.value.trim() : clubSelect.value;
                 const formData = {
                     nombre: document.getElementById('nombre').value.trim(),
                     apellido: document.getElementById('apellido').value.trim(),
@@ -1066,38 +1089,69 @@
                     fechaNacimiento: fechaNacimientoInput.value,
                     edad: edadInput.value,
                     telefono: document.getElementById('telefono').value.trim(),
-                    instagram: document.getElementById('instagram').value.trim() || 'No especificado',
+                    instagram: document.getElementById('instagram').value.trim() || '@sin_instagram',
                     categoria: categoriaSelect.value,
-                    club: clubSelect.value === 'AGREGA_TU_CLUB' ? nuevoClubNombre.value.trim() : clubSelect.value,
+                    club: selectedClub,
                     nuevoClubSolicitado: clubSelect.value === 'AGREGA_TU_CLUB',
-                    tieneFoto: fotoJugador.files.length > 0
+                    nuevoClubNombre: clubSelect.value === 'AGREGA_TU_CLUB' ? nuevoClubNombre.value.trim() : '',
+                    fotoNombre: currentPhotoName || 'sin_foto'
                 };
 
-                let summaryHTML = `
-                    <p><strong>Atleta:</strong> ${formData.nombre} ${formData.apellido}</p>
-                    <p><strong>Cédula:</strong> ${formData.cedula}</p>
-                    <p><strong>Edad / Categoría:</strong> ${formData.edad} — ${formData.categoria}</p>
-                    <p><strong>Club Asignado:</strong> ${formData.club}</p>
-                    <p><strong>Contacto:</strong> ${formData.telefono}</p>
-                `;
+                // Set Loading State
+                submitBtn.disabled = true;
+                submitBtnIcon.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-white"></i>';
+                submitBtnText.textContent = 'Enviando y Sincronizando...';
 
-                if (formData.nuevoClubSolicitado) {
-                    summaryHTML += `
-                        <div class="mt-2 pt-2 border-t border-slate-200 text-brand-burgundy font-semibold">
-                            <i class="fa-solid fa-paper-plane mr-1 text-brand-red"></i> Se ha generado una notificación para <strong>sigot.oficial@gmail.com</strong> para validar el nuevo club "${formData.club}".
-                        </div>
+                try {
+                    const response = await fetch(N8N_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+
+                    let summaryHTML = `
+                        <p><strong>Atleta:</strong> ${formData.nombre} ${formData.apellido}</p>
+                        <p><strong>Cédula:</strong> ${formData.cedula}</p>
+                        <p><strong>Edad / Categoría:</strong> ${formData.edad} — ${formData.categoria}</p>
+                        <p><strong>Club Asignado:</strong> ${formData.club}</p>
+                        <p><strong>Contacto:</strong> ${formData.telefono}</p>
                     `;
-                }
 
-                modalSummary.innerHTML = summaryHTML;
-                successModal.classList.remove('hidden');
-                successModal.classList.add('flex');
+                    if (formData.nuevoClubSolicitado) {
+                        summaryHTML += `
+                            <div class="mt-2 pt-2 border-t border-slate-200 text-brand-burgundy font-semibold">
+                                <i class="fa-solid fa-paper-plane mr-1 text-brand-red"></i> Notificación enviada a <strong>topspin.academyclub@gmail.com</strong> para validar el nuevo club "${formData.club}".
+                            </div>
+                        `;
+                    }
+
+                    modalSummary.innerHTML = summaryHTML;
+                    successModal.classList.remove('hidden');
+                    successModal.classList.add('flex');
+
+                } catch (err) {
+                    console.error('Error al sincronizar con n8n:', err);
+                    formAlert.className = 'mx-6 mt-6 sm:mx-10 p-4 rounded-2xl text-xs font-medium border bg-red-50 border-red-200 text-brand-red flex items-center gap-2';
+                    formAlert.innerHTML = '<i class="fa-solid fa-circle-exclamation text-base"></i> Hubo un problema al conectar con el servidor de inscripciones. Por favor verifica tu conexión o intenta nuevamente.';
+                    formAlert.classList.remove('hidden');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtnIcon.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+                    submitBtnText.textContent = 'Enviar Registro Oficial';
+                }
             });
 
             closeModalBtn?.addEventListener('click', () => {
                 successModal.classList.add('hidden');
                 successModal.classList.remove('flex');
                 form.reset();
+                currentPhotoBase64 = "";
+                currentPhotoName = "";
                 edadInput.value = "";
                 edadHelper.textContent = "Se calculará al elegir tu fecha de nacimiento";
                 edadHelper.className = "text-[11px] text-slate-400 mt-1";
