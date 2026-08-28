@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOPSPIN Academy & Club | Tenis de Mesa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#D92534',
+                            crimson: '#A61C24',
+                            burgundy: '#630E14',
+                            dark: '#0B0C0E',
+                            black: '#050607',
+                            charcoal: '#1E2024',
+                            slate: '#2D3139',
+                            muted: '#64748B',
+                            light: '#F8FAFC',
+                            card: '#FFFFFF'
+                        }
+                    },
+                    boxShadow: {
+                        'brand-sm': '0 2px 10px rgba(166, 28, 36, 0.08)',
+                        'brand-md': '0 10px 25px -5px rgba(166, 28, 36, 0.15)',
+                        'brand-lg': '0 20px 40px -10px rgba(11, 12, 14, 0.12), 0 0 20px rgba(217, 37, 52, 0.15)',
+                        'glow-red': '0 0 25px rgba(217, 37, 52, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .gradient-brand {
+            background: linear-gradient(135deg, #D92534 0%, #A61C24 45%, #0B0C0E 100%);
+        }
+        
+        .gradient-brand-reverse {
+            background: linear-gradient(135deg, #0B0C0E 0%, #1E2024 50%, #A61C24 100%);
+        }
+
+        .gradient-text-red {
+            background: linear-gradient(135deg, #D92534 0%, #630E14 70%, #0B0C0E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-dark-card {
+            background: linear-gradient(145deg, #1E2024 0%, #0B0C0E 100%);
+        }
+
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px), radial-gradient(#f1f5f9 1.2px, #ffffff 1.2px);
+            background-size: 48px 48px;
+            background-position: 0 0, 24px 24px;
+        }
+
+        @keyframes float-ball {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+        }
+        
+        .animate-float {
+            animation: float-ball 5s ease-in-out infinite;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A61C24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D92534;
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFB] text-brand-dark font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                         alt="TOPSPIN Academy & Club" 
+                         class="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm">
+                    <div class="hidden sm:block">
+                        <span class="font-display font-black text-xl italic tracking-wider text-brand-dark uppercase block leading-none">
+                            TOP<span class="text-brand-red">SPIN</span>
+                        </span>
+                        <span class="text-[10px] font-semibold tracking-widest text-slate-500 uppercase block mt-1">
+                            Academy & Club
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider">
+                        Inicio
+                    </a>
+                    <a href="#registro" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider">
+                        Registrar en el Club
+                    </a>
+                    <a href="#contacto" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider">
+                        Contacto
+                    </a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="#registro" class="gradient-brand text-white text-xs md:text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl shadow-brand-md hover:shadow-glow-red hover:brightness-110 active:scale-95 transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-table-tennis-paddle-ball text-white/90"></i>
+                        <span>Inscribirme Ahora</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" type="button" class="text-slate-700 hover:text-brand-red p-2 focus:outline-none" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
+                Inicio
+            </a>
+            <a href="#registro" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
+                Registrar en el Club
+            </a>
+            <a href="#contacto" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
+                Contacto
+            </a>
+            <div class="pt-2">
+                <a href="#registro" class="w-full text-center block gradient-brand text-white text-sm font-bold uppercase tracking-wider py-3 rounded-xl shadow-md mobile-link">
+                    <i class="fa-solid fa-table-tennis-paddle-ball mr-2"></i> Inscribirme Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- ================= SECCIÓN 1: INICIO ================= -->
+        <section id="inicio" class="hero-pattern relative overflow-hidden py-16 md:py-24 border-b border-slate-200">
+            <!-- Decorative Background Glows -->
+            <div class="absolute top-1/4 right-0 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none -mr-20"></div>
+            <div class="absolute bottom-0 left-10 w-80 h-80 bg-slate-900/5 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-brand-crimson text-xs font-bold uppercase tracking-wider shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                            <span>Academia & Club Oficial de Tenis de Mesa</span>
+                        </div>
+
+                        <!-- Main Headline -->
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black italic tracking-tight text-brand-dark uppercase leading-[1.1]">
+                            Domina cada <span class="gradient-text-red">Efecto.</span><br>
+                            Conquista cada <span class="text-brand-red">Punto.</span>
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Bienvenido a <strong class="text-brand-dark font-bold">TOPSPIN Academy & Club</strong>, el espacio diseñado para atletas, competidores y entusiastas del tenis de mesa que buscan llevar su técnica, velocidad y disciplina al más alto nivel.
+                        </p>
+
+                        <!-- Highlights Pills -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-slate-200 shadow-sm text-xs font-semibold text-slate-700">
+                                <i class="fa-solid fa-trophy text-brand-red"></i>
+                                <span>Ranking y Torneos</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-slate-200 shadow-sm text-xs font-semibold text-slate-700">
+                                <i class="fa-solid fa-person-running text-brand-red"></i>
+                                <span>Entrenamiento Táctico</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-slate-200 shadow-sm text-xs font-semibold text-slate-700">
+                                <i class="fa-solid fa-layer-group text-brand-red"></i>
+                                <span>Todas las Categorías</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#registro" class="w-full sm:w-auto gradient-brand text-white font-display font-extrabold text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-brand-md hover:shadow-glow-red hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+                                <span>Registrarme en el Club</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#contacto" class="w-full sm:w-auto bg-white text-slate-800 font-display font-bold text-sm uppercase tracking-wider px-7 py-4 rounded-xl border border-slate-300 hover:border-brand-red hover:text-brand-red hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-location-dot text-brand-red"></i>
+                                <span>Información y Sedes</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual / Shield Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            
+                            <!-- Ambient Glow -->
+                            <div class="absolute -inset-1.5 gradient-brand rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+
+                            <!-- Card Container -->
+                            <div class="relative bg-white rounded-3xl border border-slate-200/90 shadow-2xl p-8 text-center overflow-hidden">
+                                
+                                <!-- Decorative Top Header Bar -->
+                                <div class="absolute top-0 left-0 right-0 h-2 gradient-brand"></div>
+
+                                <!-- Floating Ping Pong Ball Icon -->
+                                <div class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 shadow-inner flex items-center justify-center absolute top-5 right-5 animate-float text-slate-400">
+                                    <i class="fa-solid fa-table-tennis-paddle-ball text-brand-red text-lg"></i>
+                                </div>
+
+                                <!-- Club Crest Image -->
+                                <div class="py-4">
+                                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                                         alt="TOPSPIN Academy & Club Logo" 
+                                         class="h-56 mx-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-500">
+                                </div>
+
+                                <!-- Card Bio -->
+                                <div class="mt-4 pt-4 border-t border-slate-100">
+                                    <h3 class="font-display font-black text-2xl italic tracking-wide text-brand-dark uppercase">
+                                        TOPSPIN <span class="text-brand-red">ACADEMY</span>
+                                    </h3>
+                                    <p class="text-xs text-slate-500 font-medium mt-1">
+                                        Comunidad oficial de desarrollo técnico y alta competencia
+                                    </p>
+
+                                    <!-- Quick Stats Grid inside card -->
+                                    <div class="grid grid-cols-3 gap-2 mt-6 pt-4 border-t border-slate-100 text-left">
+                                        <div class="bg-slate-50 p-2.5 rounded-xl text-center border border-slate-100">
+                                            <span class="font-display font-black text-lg text-brand-red block leading-none">+15</span>
+                                            <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Clubes</span>
+                                        </div>
+                                        <div class="bg-slate-50 p-2.5 rounded-xl text-center border border-slate-100">
+                                            <span class="font-display font-black text-lg text-brand-dark block leading-none">100%</span>
+                                            <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Oficial</span>
+                                        </div>
+                                        <div class="bg-slate-50 p-2.5 rounded-xl text-center border border-slate-100">
+                                            <span class="font-display font-black text-lg text-brand-red block leading-none">ALL</span>
+                                            <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Edades</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FEATURES / BENEFICIOS ================= -->
+        <section class="py-12 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-red-200 transition-all duration-300 hover:shadow-brand-sm group">
+                        <div class="w-12 h-12 rounded-xl gradient-brand text-white flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold text-base text-brand-dark uppercase">Desarrollo Técnico</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Metodologías de entrenamiento moderno para potenciar tu saque, topspin, bloqueo y juego de piernas.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-red-200 transition-all duration-300 hover:shadow-brand-sm group">
+                        <div class="w-12 h-12 rounded-xl gradient-dark-card text-brand-red flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform border border-slate-700">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold text-base text-brand-dark uppercase">Representación y Clubes</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Inscribe a tu club o compite de manera independiente con seguimiento de estadísticas y ranking.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-red-200 transition-all duration-300 hover:shadow-brand-sm group">
+                        <div class="w-12 h-12 rounded-xl gradient-brand text-white flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold text-base text-brand-dark uppercase">Eventos y Competencias</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Participación constante en ligas internas, válidas federadas y copas inter-clubes por categoría.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 2: REGISTRO EN EL CLUB ================= -->
+        <section id="registro" class="py-16 md:py-24 bg-[#F8FAFC] relative">
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center space-y-3 mb-12">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-id-card text-brand-red"></i>
+                        <span>Ficha Oficial de Inscripción</span>
+                    </div>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black italic uppercase tracking-tight text-brand-dark">
+                        Registro de <span class="gradient-text-red">Nuevos Integrantes</span>
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
+                        Completa tus datos personales y deportivos para formalizar tu registro en el sistema y quedar asignado a tu categoría correspondiente.
+                    </p>
+                </div>
+
+                <!-- Registration Form Card -->
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+                    
+                    <!-- Card Top Accent Banner -->
+                    <div class="bg-gradient-to-r from-brand-dark via-brand-burgundy to-brand-red p-6 text-white flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-clipboard-list text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-lg uppercase tracking-wide">📋 Información del Formulario</h3>
+                                <p class="text-xs text-white/80">Los campos marcados con (*) son obligatorios</p>
+                            </div>
+                        </div>
+                        <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                             alt="Logo" class="h-10 w-auto opacity-80 hidden sm:block">
+                    </div>
+
+                    <!-- Form Content -->
+                    <form id="registroForm" class="p-6 sm:p-10 space-y-8" novalidate>
+                        
+                        <!-- Bloque 1: Datos Personales -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-brand-crimson pb-2 mb-4 border-b border-slate-100 flex items-center gap-2">
+                                <i class="fa-solid fa-user"></i> 1. Identificación del Atleta
+                            </h4>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                
+                                <!-- Nombre -->
+                                <div>
+                                    <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Nombre <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-user-pen text-sm"></i>
+                                        </div>
+                                        <input type="text" id="nombre" name="nombre" required
+                                               placeholder="Ej: Juan"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa tu nombre</p>
+                                </div>
+
+                                <!-- Apellido -->
+                                <div>
+                                    <label for="apellido" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Apellido <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-signature text-sm"></i>
+                                        </div>
+                                        <input type="text" id="apellido" name="apellido" required
+                                               placeholder="Ej: Perez"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa tu apellido</p>
+                                </div>
+
+                                <!-- Cédula de Identidad (ID) -->
+                                <div>
+                                    <label for="cedula" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Cédula de Identidad (ID) <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-address-card text-sm"></i>
+                                        </div>
+                                        <input type="text" id="cedula" name="cedula" required
+                                               placeholder="Ej: 12.345.678"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa una cédula válida</p>
+                                </div>
+
+                                <!-- Género -->
+                                <div>
+                                    <label for="genero" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Género <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-venus-mars text-sm"></i>
+                                        </div>
+                                        <select id="genero" name="genero" required
+                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
+                                            <option value="" disabled selected>Selecciona tu género</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Selecciona un género</p>
+                                </div>
+
+                                <!-- Fecha de Nacimiento -->
+                                <div>
+                                    <label for="fechaNacimiento" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Fecha de Nacimiento <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-regular fa-calendar-days text-sm"></i>
+                                        </div>
+                                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa tu fecha de nacimiento</p>
+                                </div>
+
+                                <!-- Edad (Calculada Automáticamente) -->
+                                <div>
+                                    <label for="edad" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Edad (Calculada) <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-calculator text-sm"></i>
+                                        </div>
+                                        <input type="text" id="edad" name="edad" readonly
+                                               placeholder="Calculada automáticamente"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-sm font-bold text-brand-crimson focus:outline-none cursor-not-allowed">
+                                    </div>
+                                    <p id="edadHelper" class="text-[11px] text-slate-400 mt-1">Se calculará al elegir tu fecha de nacimiento</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Bloque 2: Contacto & Redes -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-brand-crimson pb-2 mb-4 border-b border-slate-100 flex items-center gap-2">
+                                <i class="fa-solid fa-phone"></i> 2. Canales de Contacto
+                            </h4>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                
+                                <!-- Número de Contacto -->
+                                <div>
+                                    <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Número de Contacto <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-phone text-sm"></i>
+                                        </div>
+                                        <input type="tel" id="telefono" name="telefono" required
+                                               placeholder="Ej: 04121234567"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa un número de teléfono</p>
+                                </div>
+
+                                <!-- Usuario de Instagram (Opcional) -->
+                                <div>
+                                    <label for="instagram" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Usuario de Instagram <span class="text-slate-400 font-normal lowercase">(opcional)</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-brands fa-instagram text-sm"></i>
+                                        </div>
+                                        <input type="text" id="instagram" name="instagram"
+                                               placeholder="Ej: @mi_usuario"
+                                               class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Bloque 3: Datos Deportivos & Club -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-brand-crimson pb-2 mb-4 border-b border-slate-100 flex items-center gap-2">
+                                <i class="fa-solid fa-table-tennis-paddle-ball"></i> 3. Información Deportiva
+                            </h4>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                
+                                <!-- Categoría (Preconfigurada) -->
+                                <div>
+                                    <label for="categoria" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Categoría (Preconfigurada) <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-medal text-sm"></i>
+                                        </div>
+                                        <select id="categoria" name="categoria" required
+                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
+                                            <option value="" disabled selected>Selecciona tu categoría</option>
+                                            <optgroup label="Menores y Juveniles">
+                                                <option value="Sub-11 (Iniciación)">Sub-11 (Menor a 11 años)</option>
+                                                <option value="Sub-13 (Infantil)">Sub-13 (11 a 13 años)</option>
+                                                <option value="Sub-15 (Cadete)">Sub-15 (14 a 15 años)</option>
+                                                <option value="Sub-19 (Juvenil)">Sub-19 (16 a 19 años)</option>
+                                            </optgroup>
+                                            <optgroup label="Categorías Abiertas y Ranking">
+                                                <option value="Primera Categoría (Libre)">Primera Categoría (Libre / Alto Rendimiento)</option>
+                                                <option value="Segunda Categoría">Segunda Categoría</option>
+                                                <option value="Tercera Categoría">Tercera Categoría</option>
+                                                <option value="Cuarta Categoría">Cuarta Categoría</option>
+                                                <option value="Quinta Categoría / Principiante">Quinta Categoría / Aficionado</option>
+                                            </optgroup>
+                                            <optgroup label="Categorías Máster">
+                                                <option value="Máster 40+">Máster 40+ (40 a 49 años)</option>
+                                                <option value="Máster 50+">Máster 50+ (50 a 59 años)</option>
+                                                <option value="Máster 60+">Máster 60+ (60 años o más)</option>
+                                            </optgroup>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <p id="catHelper" class="text-[11px] text-slate-400 mt-1">Se pre-seleccionará una sugerencia basada en tu edad</p>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Selecciona una categoría</p>
+                                </div>
+
+                                <!-- Representa al Club -->
+                                <div>
+                                    <label for="clubSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                        Representa al Club <span class="text-brand-red">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-shield-halved text-sm"></i>
+                                        </div>
+                                        <select id="clubSelect" name="club" required
+                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
+                                            <option value="" disabled selected>Seleccione un Club de la lista</option>
+                                            <option value="Academia Francisco Lopez">Academia Francisco Lopez</option>
+                                            <option value="Academia Navas TT">Academia Navas TT</option>
+                                            <option value="Armenio">Armenio</option>
+                                            <option value="Club Tachira">Club Tachira</option>
+                                            <option value="Dragon Dorado">Dragon Dorado</option>
+                                            <option value="Fasanaro Sport">Fasanaro Sport</option>
+                                            <option value="Hermandad Gallega">Hermandad Gallega</option>
+                                            <option value="Hogar Canario">Hogar Canario</option>
+                                            <option value="La Candelaria">La Candelaria</option>
+                                            <option value="Paracotos">Paracotos</option>
+                                            <option value="Parque Miranda">Parque Miranda</option>
+                                            <option value="San Jose">San Jose</option>
+                                            <option value="Tablet Pong">Tablet Pong</option>
+                                            <option value="The Best">The Best</option>
+                                            <option value="Los Proceres">Los Proceres</option>
+                                            <option value="UCV">UCV</option>
+                                            <option value="VAAC (Valle Arriba Atletic Club)">VAAC (Valle Arriba Atletic Club)</option>
+                                            <option value="Independiente">Independiente (Sin Club)</option>
+                                            <option value="AGREGA_TU_CLUB" class="font-bold text-brand-crimson">➕ Agrega tu Club...</option>
+                                        </select>
+                                        <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Selecciona el club al que perteneces</p>
+                                </div>
+
+                            </div>
+
+                            <!-- Campo Condicional: Agrega tu Club -->
+                            <div id="nuevoClubWrapper" class="hidden mt-4 p-4 rounded-2xl bg-red-50/70 border border-red-200 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-crimson text-white flex items-center justify-center text-sm shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-building-circle-arrow-right"></i>
+                                    </div>
+                                    <div class="flex-1 space-y-2">
+                                        <label for="nuevoClubNombre" class="block text-xs font-bold uppercase tracking-wider text-brand-dark">
+                                            Escribe el Nombre de tu Club <span class="text-brand-red">*</span>
+                                        </label>
+                                        <input type="text" id="nuevoClubNombre" name="nuevoClubNombre"
+                                               placeholder="Ej: Club Deportivo Los Andes TT"
+                                               class="w-full px-4 py-2.5 bg-white border border-red-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-brand-red">
+                                        
+                                        <div class="flex items-center gap-2 text-xs text-brand-burgundy font-medium pt-1">
+                                            <i class="fa-solid fa-circle-info text-brand-red text-sm"></i>
+                                            <span>
+                                                Se enviará una solicitud al administrador (<strong>sigot.oficial@gmail.com</strong>) para su revisión y homologación en la lista oficial.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque 4: Fotografía del Jugador (Opcional) -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-brand-crimson pb-2 mb-4 border-b border-slate-100 flex items-center gap-2">
+                                <i class="fa-solid fa-camera"></i> 4. Fotografía del Jugador (Opcional)
+                            </h4>
+
+                            <div class="relative">
+                                <div id="dropZone" class="border-2 border-dashed border-slate-200 hover:border-brand-red rounded-2xl p-6 text-center cursor-pointer transition-colors bg-slate-50 hover:bg-red-50/30">
+                                    <input type="file" id="fotoJugador" name="fotoJugador" accept="image/*" class="hidden">
+                                    
+                                    <div id="uploadPrompt" class="space-y-2">
+                                        <div class="w-12 h-12 rounded-full bg-white shadow-sm border border-slate-200 text-slate-400 mx-auto flex items-center justify-center text-lg">
+                                            <i class="fa-solid fa-cloud-arrow-up text-brand-red"></i>
+                                        </div>
+                                        <p class="text-sm font-semibold text-slate-700">
+                                            Haz clic para subir o arrastra una foto aquí
+                                        </p>
+                                        <p class="text-xs text-slate-400">
+                                            Formatos permitidos: JPG, PNG, WEBP (Máx. 5MB)
+                                        </p>
+                                    </div>
+
+                                    <!-- Preview Zone -->
+                                    <div id="uploadPreview" class="hidden flex items-center justify-center gap-4">
+                                        <img id="previewImg" src="#" alt="Preview" class="w-16 h-16 rounded-xl object-cover border border-slate-300 shadow-sm">
+                                        <div class="text-left">
+                                            <p id="previewName" class="text-xs font-bold text-slate-800 truncate max-w-xs"></p>
+                                            <p id="previewSize" class="text-[11px] text-slate-500"></p>
+                                            <button type="button" id="removePhotoBtn" class="text-xs text-brand-red hover:underline font-bold mt-1 inline-flex items-center gap-1">
+                                                <i class="fa-solid fa-trash text-[10px]"></i> Eliminar foto
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón de Envío -->
+                        <div class="pt-4">
+                            <button type="submit" id="submitBtn" 
+                                    class="w-full gradient-brand text-white font-display font-black text-base uppercase tracking-widest py-4 px-8 rounded-2xl shadow-brand-lg hover:shadow-glow-red hover:scale-[1.01] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Registro Oficial</span>
+                            </button>
+                            <p class="text-center text-xs text-slate-400 mt-3">
+                                Al enviar este formulario declaras que la información ingresada es verídica y autorizas el tratamiento de datos para fines deportivos de TOPSPIN.
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 3: CONTACTO ================= -->
+        <section id="contacto" class="py-16 md:py-24 bg-white border-t border-slate-200 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left: Contact Details & Schedule -->
+                    <div class="lg:col-span-6 space-y-6">
+                        
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-headset text-brand-red"></i>
+                            <span>Atención Directa</span>
+                        </div>
+
+                        <h2 class="font-display text-3xl sm:text-4xl font-black italic uppercase tracking-tight text-brand-dark">
+                            Contáctanos & <span class="text-brand-red">Únete al Club</span>
+                        </h2>
+
+                        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                            ¿Tienes dudas sobre los entrenamientos, inscripciones de tu club o reservas de mesa? Nuestro equipo de administración técnica está disponible para responderte.
+                        </p>
+
+                        <!-- Contact Direct Items -->
+                        <div class="space-y-4 pt-2">
+                            
+                            <!-- WhatsApp / Teléfono -->
+                            <a href="https://wa.me/584121234567" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Línea Directa / WhatsApp</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">+58 412-1234567</span>
+                                </div>
+                            </a>
+
+                            <!-- Correo Oficial -->
+                            <a href="mailto:sigot.oficial@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                                <div class="w-12 h-12 rounded-xl gradient-brand text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Correo Electrónico de Contacto</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">sigot.oficial@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <!-- Instagram Oficial -->
+                            <a href="https://instagram.com/topspin_club" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-red hover:bg-red-50/20 transition-all group">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Comunidad Oficial en Instagram</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-900">@topspin_club</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Right: Info Card & Horarios -->
+                    <div class="lg:col-span-6">
+                        <div class="gradient-dark-card rounded-3xl p-8 text-white border border-slate-800 shadow-2xl relative overflow-hidden">
+                            
+                            <!-- Red Glow Accent inside dark card -->
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-crimson/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                            <div class="relative z-10 space-y-6">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-clock text-brand-red text-2xl"></i>
+                                    <div>
+                                        <h3 class="font-display font-bold text-xl uppercase tracking-wide">Horarios de Sesión</h3>
+                                        <p class="text-xs text-slate-400">Entrenamientos formativos y juego libre</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3 pt-2">
+                                    <div class="flex justify-between items-center py-2.5 border-b border-slate-800 text-xs sm:text-sm">
+                                        <span class="text-slate-300 font-medium">Lunes a Viernes (Iniciación / Formativo)</span>
+                                        <span class="font-bold text-brand-red">03:00 PM – 05:30 PM</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-slate-800 text-xs sm:text-sm">
+                                        <span class="text-slate-300 font-medium">Lunes a Viernes (Alto Rendimiento / Máster)</span>
+                                        <span class="font-bold text-white">05:30 PM – 09:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-slate-800 text-xs sm:text-sm">
+                                        <span class="text-slate-300 font-medium">Sábados (Torneos & Ranking Interno)</span>
+                                        <span class="font-bold text-brand-red">09:00 AM – 04:00 PM</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mt-6">
+                                    <h4 class="font-bold text-xs uppercase tracking-wider text-slate-300 mb-1 flex items-center gap-2">
+                                        <i class="fa-solid fa-location-dot text-brand-red"></i> Sede Principal
+                                    </h4>
+                                    <p class="text-xs text-slate-400 leading-relaxed">
+                                        Caracas, Venezuela. Instalaciones con mesas profesionales avaladas ITTF, piso sintético de alta amortiguación e iluminación reglamentaria.
+                                    </p>
+                                </div>
+
+                                <div class="pt-2">
+                                    <a href="#registro" class="w-full text-center block bg-brand-red hover:bg-brand-crimson text-white text-xs font-extrabold uppercase tracking-wider py-3.5 rounded-xl shadow-lg transition-all">
+                                        Completar Ficha de Inscripción
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-brand-black text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3">
+                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                         alt="Logo TOPSPIN" 
+                         class="h-10 w-auto object-contain brightness-95">
+                    <div>
+                        <span class="font-display font-black text-sm italic tracking-wider text-white uppercase block">
+                            TOPSPIN <span class="text-brand-red">ACADEMY & CLUB</span>
+                        </span>
+                        <span class="text-[10px] text-slate-500 uppercase tracking-widest block">Tenis de Mesa Oficial</span>
+                    </div>
+                </div>
+
+                <!-- Footer Nav -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-wider font-semibold text-slate-400">
+                    <a href="#inicio" class="hover:text-brand-red transition-colors">Inicio</a>
+                    <a href="#registro" class="hover:text-brand-red transition-colors">Registrar en el Club</a>
+                    <a href="#contacto" class="hover:text-brand-red transition-colors">Contacto</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500">
+                    &copy; <span id="currentYear"></span> TOPSPIN Academy & Club. Todos los derechos reservados.
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL DE ÉXITO ================= -->
+    <div id="successModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border border-slate-200 transform transition-all animate-scale-up">
+            
+            <div class="w-16 h-16 rounded-full bg-red-50 text-brand-red mx-auto flex items-center justify-center text-3xl mb-4 border border-red-100 shadow-sm">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h3 class="font-display font-black text-2xl uppercase tracking-tight text-brand-dark">
+                ¡Registro <span class="text-brand-red">Exitoso!</span>
+            </h3>
+
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed" id="modalMessage">
+                Tu información ha sido registrada correctamente en el sistema de TOPSPIN Academy & Club.
+            </p>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 text-left bg-slate-50 p-4 rounded-xl space-y-1 text-xs text-slate-700" id="modalSummary">
+                <!-- Summary inserted dynamically via JS -->
+            </div>
+
+            <button type="button" id="closeModalBtn" 
+                    class="mt-6 w-full gradient-brand text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all">
+                Aceptar y Continuar
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn?.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const form = document.getElementById('registroForm');
+            const fechaNacimientoInput = document.getElementById('fechaNacimiento');
+            const edadInput = document.getElementById('edad');
+            const edadHelper = document.getElementById('edadHelper');
+            const categoriaSelect = document.getElementById('categoria');
+            const catHelper = document.getElementById('catHelper');
+            const clubSelect = document.getElementById('clubSelect');
+            const nuevoClubWrapper = document.getElementById('nuevoClubWrapper');
+            const nuevoClubNombre = document.getElementById('nuevoClubNombre');
+            
+            const fotoJugador = document.getElementById('fotoJugador');
+            const dropZone = document.getElementById('dropZone');
+            const uploadPrompt = document.getElementById('uploadPrompt');
+            const uploadPreview = document.getElementById('uploadPreview');
+            const previewImg = document.getElementById('previewImg');
+            const previewName = document.getElementById('previewName');
+            const previewSize = document.getElementById('previewSize');
+            const removePhotoBtn = document.getElementById('removePhotoBtn');
+
+            const successModal = document.getElementById('successModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalSummary = document.getElementById('modalSummary');
+
+            function calcularEdad(fechaString) {
+                if (!fechaString) return null;
+                const hoy = new Date();
+                const nacimiento = new Date(fechaString);
+                let edad = hoy.getFullYear() - nacimiento.getFullYear();
+                const m = hoy.getMonth() - nacimiento.getMonth();
+                if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+                    edad--;
+                }
+                return edad;
+            }
+
+            function sugerirCategoria(edad) {
+                if (edad === null || isNaN(edad) || edad < 0) return;
+
+                if (edad <= 10) {
+                    categoriaSelect.value = "Sub-11 (Iniciación)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-11 (Iniciación)";
+                } else if (edad >= 11 && edad <= 13) {
+                    categoriaSelect.value = "Sub-13 (Infantil)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-13 (Infantil)";
+                } else if (edad >= 14 && edad <= 15) {
+                    categoriaSelect.value = "Sub-15 (Cadete)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-15 (Cadete)";
+                } else if (edad >= 16 && edad <= 19) {
+                    categoriaSelect.value = "Sub-19 (Juvenil)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-19 (Juvenil)";
+                } else if (edad >= 20 && edad < 40) {
+                    if (!categoriaSelect.value || categoriaSelect.value.startsWith("Sub")) {
+                        categoriaSelect.value = "Primera Categoría (Libre)";
+                        catHelper.textContent = "Sugerida automáticamente: Categoría Abierta / Libre";
+                    }
+                } else if (edad >= 40 && edad <= 49) {
+                    categoriaSelect.value = "Máster 40+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 40+";
+                } else if (edad >= 50 && edad <= 59) {
+                    categoriaSelect.value = "Máster 50+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 50+";
+                } else if (edad >= 60) {
+                    categoriaSelect.value = "Máster 60+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 60+";
+                }
+            }
+
+            fechaNacimientoInput?.addEventListener('change', (e) => {
+                const edad = calcularEdad(e.target.value);
+                if (edad !== null && !isNaN(edad) && edad >= 0) {
+                    edadInput.value = `${edad} años`;
+                    edadHelper.textContent = `Edad calculada: ${edad} años cumplidos`;
+                    edadHelper.className = "text-[11px] text-emerald-600 font-semibold mt-1";
+                    sugerirCategoria(edad);
+                } else {
+                    edadInput.value = "";
+                    edadHelper.textContent = "Selecciona una fecha de nacimiento válida";
+                    edadHelper.className = "text-[11px] text-brand-red font-medium mt-1";
+                }
+            });
+
+            clubSelect?.addEventListener('change', (e) => {
+                if (e.target.value === "AGREGA_TU_CLUB") {
+                    nuevoClubWrapper.classList.remove('hidden');
+                    nuevoClubNombre.setAttribute('required', 'required');
+                    nuevoClubNombre.focus();
+                } else {
+                    nuevoClubWrapper.classList.add('hidden');
+                    nuevoClubNombre.removeAttribute('required');
+                    nuevoClubNombre.value = "";
+                }
+            });
+
+            dropZone?.addEventListener('click', () => fotoJugador.click());
+
+            dropZone?.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('border-brand-red', 'bg-red-50/50');
+            });
+
+            dropZone?.addEventListener('dragleave', () => {
+                dropZone.classList.remove('border-brand-red', 'bg-red-50/50');
+            });
+
+            dropZone?.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-brand-red', 'bg-red-50/50');
+                if (e.dataTransfer.files.length) {
+                    fotoJugador.files = e.dataTransfer.files;
+                    handleFileSelect(fotoJugador.files[0]);
+                }
+            });
+
+            fotoJugador?.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+
+            function handleFileSelect(file) {
+                if (!file) return;
+                if (!file.type.startsWith('image/')) {
+                    alert('Por favor selecciona un archivo de imagen válido (JPG, PNG, WEBP).');
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    previewName.textContent = file.name;
+                    previewSize.textContent = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+                    uploadPrompt.classList.add('hidden');
+                    uploadPreview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            removePhotoBtn?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fotoJugador.value = "";
+                previewImg.src = "#";
+                uploadPreview.classList.add('hidden');
+                uploadPrompt.classList.remove('hidden');
+            });
+
+            form?.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    const errorMsg = field.parentElement.parentElement.querySelector('.error-msg') || field.parentElement.querySelector('.error-msg');
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-brand-red', 'ring-2', 'ring-brand-red/20');
+                        if (errorMsg) errorMsg.classList.remove('hidden');
+                    } else {
+                        field.classList.remove('border-brand-red', 'ring-2', 'ring-brand-red/20');
+                        if (errorMsg) errorMsg.classList.add('hidden');
+                    }
+                });
+
+                if (!isValid) {
+                    const firstError = form.querySelector('.border-brand-red');
+                    firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                const formData = {
+                    nombre: document.getElementById('nombre').value.trim(),
+                    apellido: document.getElementById('apellido').value.trim(),
+                    cedula: document.getElementById('cedula').value.trim(),
+                    genero: document.getElementById('genero').value,
+                    fechaNacimiento: fechaNacimientoInput.value,
+                    edad: edadInput.value,
+                    telefono: document.getElementById('telefono').value.trim(),
+                    instagram: document.getElementById('instagram').value.trim() || 'No especificado',
+                    categoria: categoriaSelect.value,
+                    club: clubSelect.value === 'AGREGA_TU_CLUB' ? nuevoClubNombre.value.trim() : clubSelect.value,
+                    nuevoClubSolicitado: clubSelect.value === 'AGREGA_TU_CLUB',
+                    tieneFoto: fotoJugador.files.length > 0
+                };
+
+                let summaryHTML = `
+                    <p><strong>Atleta:</strong> ${formData.nombre} ${formData.apellido}</p>
+                    <p><strong>Cédula:</strong> ${formData.cedula}</p>
+                    <p><strong>Edad / Categoría:</strong> ${formData.edad} — ${formData.categoria}</p>
+                    <p><strong>Club Asignado:</strong> ${formData.club}</p>
+                    <p><strong>Contacto:</strong> ${formData.telefono}</p>
+                `;
+
+                if (formData.nuevoClubSolicitado) {
+                    summaryHTML += `
+                        <div class="mt-2 pt-2 border-t border-slate-200 text-brand-burgundy font-semibold">
+                            <i class="fa-solid fa-paper-plane mr-1 text-brand-red"></i> Se ha generado una notificación para <strong>sigot.oficial@gmail.com</strong> para validar el nuevo club "${formData.club}".
+                        </div>
+                    `;
+                }
+
+                modalSummary.innerHTML = summaryHTML;
+                successModal.classList.remove('hidden');
+                successModal.classList.add('flex');
+            });
+
+            closeModalBtn?.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+                successModal.classList.remove('flex');
+                form.reset();
+                edadInput.value = "";
+                edadHelper.textContent = "Se calculará al elegir tu fecha de nacimiento";
+                edadHelper.className = "text-[11px] text-slate-400 mt-1";
+                catHelper.textContent = "Se pre-seleccionará una sugerencia basada en tu edad";
+                nuevoClubWrapper.classList.add('hidden');
+                uploadPreview.classList.add('hidden');
+                uploadPrompt.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
