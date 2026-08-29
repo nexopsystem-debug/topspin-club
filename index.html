@@ -133,6 +133,10 @@
                     <a href="#inicio" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider">
                         Inicio
                     </a>
+                    <a href="#ranking" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                        <span>Buscador & Ranking</span>
+                    </a>
                     <a href="#registro" class="text-sm font-semibold text-slate-700 hover:text-brand-red transition-colors duration-200 uppercase tracking-wider">
                         Registrar en el Club
                     </a>
@@ -143,9 +147,13 @@
 
                 <!-- CTA Button -->
                 <div class="hidden sm:flex items-center gap-4">
-                    <a href="#registro" class="gradient-brand text-white text-xs md:text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl shadow-brand-md hover:shadow-glow-red hover:brightness-110 active:scale-95 transition-all duration-300 flex items-center gap-2">
+                    <a href="#ranking" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs md:text-sm font-bold uppercase tracking-wider px-4 py-3 rounded-xl border border-slate-300 transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-brand-red"></i>
+                        <span>Buscar Jugador</span>
+                    </a>
+                    <a href="#registro" class="gradient-brand text-white text-xs md:text-sm font-bold uppercase tracking-wider px-5 py-3 rounded-xl shadow-brand-md hover:shadow-glow-red hover:brightness-110 active:scale-95 transition-all duration-300 flex items-center gap-2">
                         <i class="fa-solid fa-table-tennis-paddle-ball text-white/90"></i>
-                        <span>Inscribirme Ahora</span>
+                        <span>Inscribirme</span>
                     </a>
                 </div>
 
@@ -163,15 +171,22 @@
             <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
                 Inicio
             </a>
+            <a href="#ranking" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link flex items-center justify-between">
+                <span>Buscador & Ranking</span>
+                <span class="px-2 py-0.5 rounded bg-red-100 text-brand-red text-xs font-black">EN VIVO</span>
+            </a>
             <a href="#registro" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
                 Registrar en el Club
             </a>
             <a href="#contacto" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 hover:text-brand-red uppercase mobile-link">
                 Contacto
             </a>
-            <div class="pt-2">
-                <a href="#registro" class="w-full text-center block gradient-brand text-white text-sm font-bold uppercase tracking-wider py-3 rounded-xl shadow-md mobile-link">
-                    <i class="fa-solid fa-table-tennis-paddle-ball mr-2"></i> Inscribirme Ahora
+            <div class="pt-2 grid grid-cols-2 gap-2">
+                <a href="#ranking" class="text-center block bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider py-3 rounded-xl border border-slate-200 mobile-link">
+                    <i class="fa-solid fa-magnifying-glass mr-1 text-brand-red"></i> Buscar Atleta
+                </a>
+                <a href="#registro" class="text-center block gradient-brand text-white text-xs font-bold uppercase tracking-wider py-3 rounded-xl shadow-md mobile-link">
+                    <i class="fa-solid fa-table-tennis-paddle-ball mr-1"></i> Inscribirme
                 </a>
             </div>
         </div>
@@ -329,7 +344,111 @@
                         </div>
                     </div>
 
+        </section>
+
+        <!-- ================= SECCIÓN: BUSCADOR OFICIAL DE JUGADORES & RANKING TOPSPIN ================= -->
+        <section id="ranking" class="py-16 md:py-24 bg-brand-dark text-white relative overflow-hidden border-b border-slate-800 cyber-grid">
+            
+            <!-- Ambient Lighting Glows -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-red/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+                
+                <!-- Section Header -->
+                <div class="text-center space-y-3 max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/80 border border-brand-red/40 text-brand-red text-xs font-bold uppercase tracking-widest shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                        <span>Sistema Pro Analytics & WTT Ranking</span>
+                    </div>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black italic uppercase tracking-tight text-white">
+                        Buscador Oficial de <span class="gradient-text-red">Jugadores</span>
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-400">
+                        Busca por <strong class="text-white">Cédula (ID / DNI)</strong> o <strong class="text-white">Nombre y Apellido</strong> para consultar la ficha técnica oficial, puntos de ranking, porcentaje de victorias y estadísticas avanzadas estilo ITTF / WTT.
+                    </p>
                 </div>
+
+                <!-- Search Controls & Filters Box -->
+                <div class="max-w-4xl mx-auto bg-brand-cardDark/90 backdrop-blur-xl p-5 sm:p-7 rounded-3xl border border-brand-cardBorder shadow-2xl space-y-5">
+                    
+                    <!-- Search Input Bar -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-brand-red text-lg">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input type="text" id="playerSearchInput" 
+                               placeholder="Escribe la Cédula (ej: 18.990.123, 9953291) o Nombre del Atleta..."
+                               class="w-full pl-12 pr-28 py-4 bg-brand-charcoal/80 border border-slate-700/80 rounded-2xl text-sm sm:text-base font-medium text-white placeholder-slate-500 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/30 transition-all">
+                        
+                        <!-- Search / Clear Button -->
+                        <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center gap-2">
+                            <button id="btnClearSearch" type="button" class="hidden text-xs text-slate-400 hover:text-white px-2 py-1 rounded-md bg-slate-800">
+                                Limpiar
+                            </button>
+                            <button id="btnSearchTrigger" type="button" class="gradient-brand text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-brand-sm hover:brightness-110 active:scale-95 transition-all">
+                                <span>Buscar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter Pills -->
+                    <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-bold uppercase tracking-wider scrollbar-none" id="categoryFilterContainer">
+                        <button type="button" data-cat="ALL" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-red text-white transition-all shrink-0">
+                            Todos
+                        </button>
+                        <button type="button" data-cat="Primera" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-charcoal text-slate-400 hover:text-white border border-slate-800 transition-all shrink-0">
+                            1ra Categoría
+                        </button>
+                        <button type="button" data-cat="Segunda" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-charcoal text-slate-400 hover:text-white border border-slate-800 transition-all shrink-0">
+                            2da Categoría
+                        </button>
+                        <button type="button" data-cat="Tercera" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-charcoal text-slate-400 hover:text-white border border-slate-800 transition-all shrink-0">
+                            3ra Categoría
+                        </button>
+                        <button type="button" data-cat="Master" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-charcoal text-slate-400 hover:text-white border border-slate-800 transition-all shrink-0">
+                            Máster 50+
+                        </button>
+                        <button type="button" data-cat="Sub" class="cat-filter-btn px-4 py-2 rounded-xl bg-brand-charcoal text-slate-400 hover:text-white border border-slate-800 transition-all shrink-0">
+                            Juvenil / Menor
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Results Section -->
+                <div class="space-y-6">
+                    
+                    <!-- Search Results Counter & Live Indicator -->
+                    <div class="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-users text-brand-gold"></i>
+                            <span>Atletas registrados: <strong class="text-white" id="athletesCountText">Cargando...</strong></span>
+                        </div>
+                        <span class="text-slate-500 font-mono text-[11px]">Sistema Sincronizado en Tiempo Real</span>
+                    </div>
+
+                    <!-- Athletes Cards Grid -->
+                    <div id="athletesCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Cards injected dynamically by JS -->
+                    </div>
+
+                    <!-- No Results Fallback Message -->
+                    <div id="noResultsMsg" class="hidden text-center py-12 bg-brand-cardDark/50 rounded-3xl border border-slate-800/80 p-8 space-y-4">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-slate-800 flex items-center justify-center text-slate-400 text-xl">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h4 class="font-display font-bold text-lg text-white">No se encontraron atletas con ese criterio</h4>
+                        <p class="text-xs text-slate-400 max-w-sm mx-auto">
+                            Verifica que el número de cédula o nombre esté bien escrito, o prueba seleccionando otra categoría.
+                        </p>
+                        <a href="#registro" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl gradient-brand text-white text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-user-plus"></i> Inscribir a este Atleta
+                        </a>
+                    </div>
+
+                </div>
+
             </div>
         </section>
 
@@ -590,6 +709,7 @@
                                         <select id="clubSelect" name="club" required
                                                 class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
                                             <option value="" disabled selected>Seleccione un Club de la lista</option>
+                                            <option value="TOPSPIN Academy & Club" class="font-black text-brand-red">🏓 TOPSPIN Academy & Club (Sede Principal)</option>
                                             <option value="Academia Francisco Lopez">Academia Francisco Lopez</option>
                                             <option value="Academia Navas TT">Academia Navas TT</option>
                                             <option value="Armenio">Armenio</option>
@@ -1147,7 +1267,8 @@
                 }
             });
 
-            closeModalBtn?.addEventListener('click', () => {
+            document.getElementById('closeModalBtn')?.addEventListener('click', () => {
+                const successModal = document.getElementById('successModal');
                 successModal.classList.add('hidden');
                 successModal.classList.remove('flex');
                 form.reset();
@@ -1160,6 +1281,252 @@
                 nuevoClubWrapper.classList.add('hidden');
                 uploadPreview.classList.add('hidden');
                 uploadPrompt.classList.remove('hidden');
+                // Refresh athletes list after new registration
+                fetchLiveAthletes();
+            });
+
+            // ================= BUSCADOR OFICIAL DE JUGADORES Y RANKING =================
+            const N8N_ATLETAS_API = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-atletas';
+            const searchInput = document.getElementById('playerSearchInput');
+            const btnClearSearch = document.getElementById('btnClearSearch');
+            const btnSearchTrigger = document.getElementById('btnSearchTrigger');
+            const filterButtons = document.querySelectorAll('.cat-filter-btn');
+            const cardsGrid = document.getElementById('athletesCardsGrid');
+            const athletesCountText = document.getElementById('athletesCountText');
+            const noResultsMsg = document.getElementById('noResultsMsg');
+
+            let allAthletes = [
+                {
+                    id: 6,
+                    nombre: "Luis",
+                    apellido: "Marciales Alejos",
+                    nombreCompleto: "Luis Marciales Alejos",
+                    cedula: "9953291",
+                    genero: "Masculino",
+                    fechaNacimiento: "1970-02-23",
+                    edad: "56 años",
+                    telefono: "04141148824",
+                    instagram: "@luis_marciales_tt",
+                    categoria: "Máster 50+",
+                    club: "Parque Miranda",
+                    fotoUrl: "https://i.ibb.co/SD5LBqrF/luis-marciales-alejos-9953291.jpg",
+                    ranking: { puntos: 1422, posicion: 1, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
+                    stats: { partidosTotales: 55, victorias: 42, derrotas: 13, winRateTotal: "76.4%", winRateMes: "83.3%", winRate3Meses: "78.0%", rachaActual: "6W" }
+                },
+                {
+                    id: 4,
+                    nombre: "Carlos",
+                    apellido: "Mendoza",
+                    nombreCompleto: "Carlos Mendoza",
+                    cedula: "18.990.123",
+                    genero: "Masculino",
+                    fechaNacimiento: "1995-04-12",
+                    edad: "31 años",
+                    telefono: "+584129263626",
+                    instagram: "@cmendoza_tt",
+                    categoria: "Primera Categoría (Libre)",
+                    club: "TOPSPIN Academy & Club",
+                    fotoUrl: "https://i.ibb.co/mMbsGp0/carlos-mendoza-18-990-123.png",
+                    ranking: { puntos: 1798, posicion: 2, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
+                    stats: { partidosTotales: 48, victorias: 39, derrotas: 9, winRateTotal: "81.3%", winRateMes: "87.5%", winRate3Meses: "83.3%", rachaActual: "5W" }
+                },
+                {
+                    id: 5,
+                    nombre: "Valeria",
+                    apellido: "Gomez",
+                    nombreCompleto: "Valeria Gomez",
+                    cedula: "24.551.980",
+                    genero: "Femenino",
+                    fechaNacimiento: "2001-08-15",
+                    edad: "25 años",
+                    telefono: "+584129263626",
+                    instagram: "@valeria_tt",
+                    categoria: "Segunda Categoría",
+                    club: "TOPSPIN Academy & Club",
+                    fotoUrl: "",
+                    ranking: { puntos: 1425, posicion: 4, posicionClub: 2, estatus: "Afiliado Oficial", federado: true },
+                    stats: { partidosTotales: 44, victorias: 29, derrotas: 15, winRateTotal: "65.9%", winRateMes: "70.0%", winRate3Meses: "66.7%", rachaActual: "3W" }
+                }
+            ];
+
+            let activeCategory = 'ALL';
+            let searchQuery = '';
+
+            // Fetch live data from n8n API
+            async function fetchLiveAthletes() {
+                try {
+                    const res = await fetch(N8N_ATLETAS_API);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.success && Array.isArray(data.atletas) && data.atletas.length > 0) {
+                            allAthletes = data.atletas;
+                        }
+                    }
+                } catch (e) {
+                    console.log('Usando base local de atletas iniciales:', e);
+                }
+                filterAndRenderAthletes();
+            }
+
+            fetchLiveAthletes();
+
+            function filterAndRenderAthletes() {
+                let filtered = allAthletes;
+
+                // Filter by category
+                if (activeCategory !== 'ALL') {
+                    filtered = filtered.filter(a => {
+                        const cat = (a.categoria || '').toLowerCase();
+                        if (activeCategory === 'Primera') return cat.includes('primera') || cat.includes('libre');
+                        if (activeCategory === 'Segunda') return cat.includes('segunda');
+                        if (activeCategory === 'Tercera') return cat.includes('tercera');
+                        if (activeCategory === 'Master') return cat.includes('master') || cat.includes('máster');
+                        if (activeCategory === 'Sub') return cat.includes('sub') || cat.includes('iniciación') || cat.includes('menor');
+                        return true;
+                    });
+                }
+
+                // Filter by query (cedula or name)
+                if (searchQuery.trim() !== '') {
+                    const cleanQ = searchQuery.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    filtered = filtered.filter(a => {
+                        const cleanCed = (a.cedula || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+                        const name = (a.nombreCompleto || `${a.nombre} ${a.apellido}`).toLowerCase();
+                        const club = (a.club || '').toLowerCase();
+                        return name.includes(searchQuery.toLowerCase()) || 
+                               cleanCed.includes(cleanQ) || 
+                               (a.cedula || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                               club.includes(searchQuery.toLowerCase()) ||
+                               String(a.id) === searchQuery.trim();
+                    });
+                }
+
+                renderAthletesCards(filtered);
+            }
+
+            function renderAthletesCards(athletes) {
+                if (athletesCountText) {
+                    athletesCountText.textContent = `${athletes.length} atleta${athletes.length === 1 ? '' : 's'}`;
+                }
+
+                if (athletes.length === 0) {
+                    cardsGrid.innerHTML = '';
+                    noResultsMsg.classList.remove('hidden');
+                    return;
+                }
+
+                noResultsMsg.classList.add('hidden');
+                cardsGrid.innerHTML = athletes.map(a => {
+                    const fullName = a.nombreCompleto || `${a.nombre} ${a.apellido}`;
+                    const pts = a.ranking?.puntos || 1400;
+                    const pos = a.ranking?.posicion || 1;
+                    const winRate = a.stats?.winRateTotal || '75%';
+                    const matches = a.stats?.partidosTotales || 40;
+                    const profileUrl = `jugador.html?id=${a.id || a.cedula}`;
+                    
+                    const hasPhoto = a.fotoUrl && a.fotoUrl.trim() !== '';
+
+                    return `
+                        <div class="bg-brand-cardDark rounded-3xl p-6 border border-brand-cardBorder hover:border-brand-red/50 transition-all duration-300 shadow-lg hover:shadow-glow-red/20 group flex flex-col justify-between space-y-5">
+                            
+                            <!-- Top Row: Photo & Main Info -->
+                            <div class="flex items-start gap-4">
+                                <!-- Photo / Avatar -->
+                                <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-charcoal border-2 border-brand-red/60 overflow-hidden shrink-0 shadow-md">
+                                    ${hasPhoto ? 
+                                        `<img src="${a.fotoUrl}" alt="${fullName}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">` :
+                                        `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-charcoal to-brand-cardDark text-brand-red text-2xl">
+                                            <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                                         </div>`
+                                    }
+                                    <div class="absolute bottom-0 right-0 bg-brand-red text-white text-[9px] font-black px-1.5 py-0.5 rounded-tl-md">
+                                        #${pos}
+                                    </div>
+                                </div>
+
+                                <!-- Name & Metadata -->
+                                <div class="space-y-1 overflow-hidden">
+                                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-red-950/60 border border-brand-red/30 text-brand-red text-[10px] font-extrabold uppercase tracking-wider">
+                                        ${a.categoria || 'Atleta Oficial'}
+                                    </span>
+                                    <h3 class="font-display font-black text-lg sm:text-xl text-white uppercase italic tracking-tight truncate group-hover:text-brand-red transition-colors">
+                                        ${fullName}
+                                    </h3>
+                                    <div class="flex items-center gap-2 text-xs text-slate-400">
+                                        <span>C.I: <strong class="text-slate-200">${a.cedula}</strong></span>
+                                        <span>•</span>
+                                        <span class="text-brand-gold truncate"><i class="fa-solid fa-shield-halved text-[10px] mr-1"></i>${a.club || 'TOPSPIN'}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Middle Stats Grid -->
+                            <div class="grid grid-cols-3 gap-2 py-3 px-3.5 rounded-2xl bg-brand-charcoal/70 border border-slate-800 text-center">
+                                <div>
+                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Rating WTT</span>
+                                    <span class="font-display font-black text-base text-brand-gold">${pts.toLocaleString()}</span>
+                                </div>
+                                <div class="border-x border-slate-800">
+                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Partidos</span>
+                                    <span class="font-display font-black text-base text-white">${matches}</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Win Rate</span>
+                                    <span class="font-display font-black text-base text-emerald-400">${winRate}</span>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Action CTA -->
+                            <a href="${profileUrl}" 
+                               class="w-full py-3 px-4 rounded-xl gradient-brand text-white font-display font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-brand-sm hover:brightness-110 active:scale-95 transition-all">
+                                <span>Ver Ficha Técnica WTT & Dashboard</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Search events
+            let debounceTimer;
+            searchInput?.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                if (searchQuery.trim() !== '') {
+                    btnClearSearch.classList.remove('hidden');
+                } else {
+                    btnClearSearch.classList.add('hidden');
+                }
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    filterAndRenderAthletes();
+                }, 200);
+            });
+
+            btnSearchTrigger?.addEventListener('click', () => {
+                filterAndRenderAthletes();
+            });
+
+            btnClearSearch?.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                btnClearSearch.classList.add('hidden');
+                filterAndRenderAthletes();
+                searchInput.focus();
+            });
+
+            // Category filter pills
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => {
+                        b.classList.remove('bg-brand-red', 'text-white');
+                        b.classList.add('bg-brand-charcoal', 'text-slate-400', 'border', 'border-slate-800');
+                    });
+                    btn.classList.remove('bg-brand-charcoal', 'text-slate-400', 'border', 'border-slate-800');
+                    btn.classList.add('bg-brand-red', 'text-white');
+                    activeCategory = btn.getAttribute('data-cat');
+                    filterAndRenderAthletes();
+                });
             });
         });
     </script>

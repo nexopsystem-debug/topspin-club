@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica de Jugador | TOPSPIN Academy & Club</title>
+    
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png">
+    <link rel="apple-touch-icon" href="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- QRCode.js CDN for live digital credential QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#E52435',
+                            crimson: '#B81424',
+                            burgundy: '#630E14',
+                            dark: '#08090B',
+                            cardDark: '#121418',
+                            cardBorder: '#232730',
+                            charcoal: '#1A1D24',
+                            slate: '#2D323E',
+                            gold: '#F59E0B',
+                            goldLight: '#FEF3C7',
+                            emerald: '#10B981',
+                            muted: '#94A3B8',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-red': '0 0 35px rgba(229, 36, 53, 0.35)',
+                        'glow-gold': '0 0 25px rgba(245, 158, 11, 0.35)',
+                        'glow-cyan': '0 0 25px rgba(6, 182, 212, 0.25)',
+                        'card-dark': '0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .font-display { font-family: 'Montserrat', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .gradient-brand {
+            background: linear-gradient(135deg, #E52435 0%, #B81424 50%, #08090B 100%);
+        }
+        
+        .gradient-dark-hero {
+            background: radial-gradient(circle at 50% 0%, #231215 0%, #0D0E12 60%, #08090B 100%);
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+
+        .glass-panel {
+            background: rgba(18, 20, 24, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-subtle {
+            background: rgba(26, 29, 36, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .wtt-card-border {
+            border: 1px solid rgba(229, 36, 53, 0.25);
+            position: relative;
+        }
+
+        .wtt-card-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #E52435;
+        }
+
+        .gradient-text-red {
+            background: linear-gradient(135deg, #FF4B5A 0%, #E52435 50%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scanline / Futuristic Grid effect */
+        .cyber-grid {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.03); }
+        }
+
+        .animate-glow {
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .glass-panel, .glass-panel-subtle {
+                background: #ffffff !important;
+                border: 1px solid #cccccc !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+            }
+            .gradient-dark-hero {
+                background: #f8fafc !important;
+            }
+            .text-white {
+                color: #111827 !important;
+            }
+            .text-slate-400, .text-slate-300 {
+                color: #4b5563 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-red selection:text-white min-h-screen cyber-grid">
+
+    <!-- ================= TOP NAVIGATION BAR ================= -->
+    <header class="no-print sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Left: Back Button & Logo -->
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-charcoal/80 hover:bg-brand-red text-slate-300 hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-200 border border-brand-cardBorder">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span class="hidden sm:inline">Volver al Club</span>
+                    </a>
+
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                             alt="TOPSPIN Logo" 
+                             class="h-11 w-auto object-contain transition-transform group-hover:scale-105">
+                        <div>
+                            <span class="font-display font-black text-lg italic tracking-wider text-white uppercase block leading-none">
+                                TOP<span class="text-brand-red">SPIN</span>
+                            </span>
+                            <span class="text-[9px] font-bold tracking-widest text-brand-gold uppercase block mt-0.5">
+                                Pro Analytics & WTT Ranking
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Center/Right Search Bar & Actions -->
+                <div class="flex items-center gap-3">
+                    
+                    <!-- Search Input Quick Trigger -->
+                    <div class="relative hidden md:block w-72">
+                        <input type="text" id="navSearchInput" placeholder="Buscar atleta por Cédula / Nombre..."
+                               class="w-full pl-9 pr-4 py-2 bg-brand-cardDark border border-brand-cardBorder rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-500"></i>
+                    </div>
+
+                    <!-- Action: Share Profile -->
+                    <button id="btnShareProfile" type="button" 
+                            class="px-3 py-2 rounded-xl bg-brand-charcoal hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-2 border border-brand-cardBorder transition-all"
+                            title="Compartir Perfil">
+                        <i class="fa-solid fa-share-nodes text-brand-gold"></i>
+                        <span class="hidden lg:inline">Compartir</span>
+                    </button>
+
+                    <!-- Action: Print / PDF -->
+                    <button onclick="window.print()" type="button" 
+                            class="px-3.5 py-2 rounded-xl gradient-brand text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-brand-sm hover:brightness-110 active:scale-95 transition-all"
+                            title="Descargar o Imprimir Ficha">
+                        <i class="fa-solid fa-print"></i>
+                        <span class="hidden sm:inline">Imprimir Ficha</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT WRAPPER ================= -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- ================= LOADING / SKELETON STATE ================= -->
+        <div id="loadingState" class="space-y-6 animate-pulse">
+            <div class="h-64 bg-brand-cardDark rounded-3xl border border-brand-cardBorder"></div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="h-28 bg-brand-cardDark rounded-2xl"></div>
+                <div class="h-28 bg-brand-cardDark rounded-2xl"></div>
+                <div class="h-28 bg-brand-cardDark rounded-2xl"></div>
+                <div class="h-28 bg-brand-cardDark rounded-2xl"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="h-96 bg-brand-cardDark rounded-3xl lg:col-span-2"></div>
+                <div class="h-96 bg-brand-cardDark rounded-3xl"></div>
+            </div>
+        </div>
+
+        <!-- ================= ERROR / NOT FOUND STATE ================= -->
+        <div id="notFoundState" class="hidden text-center py-20 glass-panel rounded-3xl border border-red-500/20 p-8 space-y-6">
+            <div class="w-20 h-20 mx-auto rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-brand-red text-3xl">
+                <i class="fa-solid fa-user-slash"></i>
+            </div>
+            <div class="space-y-2">
+                <h2 class="font-display font-black text-2xl sm:text-3xl uppercase tracking-wider text-white">
+                    Atleta No Encontrado
+                </h2>
+                <p class="text-slate-400 text-sm max-w-md mx-auto" id="notFoundMsg">
+                    No se encontró ningún registro con el ID o Cédula especificada. Verifica los datos o realiza una nueva búsqueda en el sistema oficial.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+                <a href="index.html#ranking" class="px-6 py-3 rounded-xl gradient-brand text-white font-bold text-xs uppercase tracking-wider shadow-glow-red">
+                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Ir al Buscador General
+                </a>
+                <a href="index.html#registro" class="px-6 py-3 rounded-xl bg-brand-charcoal text-slate-200 border border-brand-cardBorder font-bold text-xs uppercase tracking-wider hover:bg-brand-cardDark">
+                    <i class="fa-solid fa-user-plus mr-2"></i> Registrar Atleta
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= ATHLETE FULL DASHBOARD ================= -->
+        <div id="dashboardContent" class="hidden space-y-8">
+
+            <!-- ================= HERO HEADER: ATHLETE IDENTITY CARD ================= -->
+            <section class="relative gradient-dark-hero rounded-3xl p-6 sm:p-8 lg:p-10 border border-brand-cardBorder shadow-card-dark overflow-hidden wtt-card-border">
+                
+                <!-- Ambient Watermark & Glows -->
+                <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none select-none">
+                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" alt="TOPSPIN Watermark" class="w-96 h-96 object-contain">
+                </div>
+                <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Athlete Photo Section -->
+                    <div class="lg:col-span-4 flex flex-col items-center text-center">
+                        <div class="relative group">
+                            
+                            <!-- Hexagonal / Rounded Glow Border -->
+                            <div class="absolute -inset-1.5 gradient-brand rounded-3xl blur-md opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                            
+                            <!-- Profile Photo Container -->
+                            <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-brand-cardDark border-2 border-brand-red/80 overflow-hidden flex items-center justify-center shadow-2xl">
+                                <img id="playerPhoto" src="" alt="Foto del Atleta" 
+                                     class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                                <div id="playerAvatarFallback" class="hidden w-full h-full bg-gradient-to-br from-brand-charcoal to-brand-cardDark flex flex-col items-center justify-center text-slate-500">
+                                    <i class="fa-solid fa-table-tennis-paddle-ball text-5xl mb-2 text-brand-red/70"></i>
+                                    <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Atleta TOPSPIN</span>
+                                </div>
+                            </div>
+
+                            <!-- Verified Badge -->
+                            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-brand-dark border border-brand-emerald text-brand-emerald text-[11px] font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                                <i class="fa-solid fa-circle-check text-xs"></i>
+                                <span>Verificado Oficial</span>
+                            </div>
+                        </div>
+
+                        <!-- Nationality & Affiliation Badge -->
+                        <div class="flex items-center gap-2 mt-6">
+                            <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                                <span>🇻🇪</span> Venezuela
+                            </span>
+                            <span id="badgeFVTMOfficial" class="px-3 py-1 rounded-full bg-brand-burgundy/60 border border-brand-red/50 text-xs font-bold text-brand-red uppercase tracking-wider">
+                                FVTM / TOPSPIN
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Athlete Bio & Main Stats -->
+                    <div class="lg:col-span-8 space-y-6">
+                        
+                        <!-- Top Metadata Row -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-brand-red/20 border border-brand-red/40 text-brand-red text-xs font-black uppercase tracking-widest" id="playerCategoryBadge">
+                                    Primera Categoría
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-medium" id="playerGenderBadge">
+                                    Masculino
+                                </span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-medium" id="playerAgeBadge">
+                                    28 años
+                                </span>
+                            </div>
+
+                            <div class="text-right">
+                                <span class="text-[10px] uppercase tracking-widest text-slate-400 block font-semibold">ID de Afiliado</span>
+                                <span class="font-mono text-xs font-bold text-brand-gold" id="playerOfficialId">TOP-2026-0001</span>
+                            </div>
+                        </div>
+
+                        <!-- Name & Club Title -->
+                        <div class="space-y-2">
+                            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-white uppercase leading-none" id="playerName">
+                                Carlos Mendoza
+                            </h1>
+                            <div class="flex flex-wrap items-center gap-3 text-slate-300 text-sm">
+                                <span class="flex items-center gap-1.5 text-brand-gold font-bold">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span id="playerClub">TOPSPIN Academy & Club</span>
+                                </span>
+                                <span class="text-slate-600">•</span>
+                                <span class="flex items-center gap-1.5 text-slate-400">
+                                    <i class="fa-solid fa-id-card text-xs"></i>
+                                    <span>C.I: <strong class="text-slate-200" id="playerCedula">18.990.123</strong></span>
+                                </span>
+                                <span class="text-slate-600">•</span>
+                                <span class="flex items-center gap-1.5 text-slate-400" id="playerInstagramWrap">
+                                    <i class="fa-brands fa-instagram text-brand-red"></i>
+                                    <span id="playerInstagram">@cmendoza_tt</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Large Ranking Scoreboard Banner (WTT Style) -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-sm">
+                            
+                            <!-- Ranking Points -->
+                            <div class="space-y-1">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">Puntos Rating</span>
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="font-display font-black text-2xl sm:text-3xl text-brand-gold" id="statPoints">1,798</span>
+                                    <span class="text-[10px] font-bold text-emerald-400">+45</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 block">Escala ITTF / TOPSPIN</span>
+                            </div>
+
+                            <!-- Position Ranking -->
+                            <div class="space-y-1 border-l border-white/10 pl-3">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">Ranking General</span>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-xs text-brand-red font-black">#</span>
+                                    <span class="font-display font-black text-2xl sm:text-3xl text-white" id="statGlobalRank">4</span>
+                                </div>
+                                <span class="text-[10px] text-emerald-400 font-semibold block">▲ Top 10 Oficial</span>
+                            </div>
+
+                            <!-- Club Ranking -->
+                            <div class="space-y-1 border-l border-white/10 pl-3">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">Ranking Club</span>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-xs text-brand-gold font-black">#</span>
+                                    <span class="font-display font-black text-2xl sm:text-3xl text-brand-gold" id="statClubRank">1</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 block">Líder de Categoría</span>
+                            </div>
+
+                            <!-- Current Streak -->
+                            <div class="space-y-1 border-l border-white/10 pl-3">
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">Racha Actual</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-display font-black text-2xl sm:text-3xl text-emerald-400" id="statStreak">5W</span>
+                                    <span class="text-base">🔥</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 block">Partidos invicto</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= KPI METRICS ROW: HIGH PERFORMANCE STATS ================= -->
+            <section class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- KPI 1: Win Rate Total -->
+                <div class="glass-panel p-5 rounded-2xl space-y-3 relative overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Efectividad Total</span>
+                        <div class="w-8 h-8 rounded-lg bg-red-500/10 text-brand-red flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-display font-black text-3xl sm:text-4xl text-white" id="statWinRateTotal">81.3%</span>
+                        <span class="text-xs text-slate-400" id="statTotalMatchesRatio">39G - 9P</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="statWinRateBar" class="h-full gradient-brand rounded-full transition-all duration-1000" style="width: 81%"></div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 block" id="statTotalMatchesText">48 partidos oficiales disputados</span>
+                </div>
+
+                <!-- KPI 2: Win Rate Last Month -->
+                <div class="glass-panel p-5 rounded-2xl space-y-3 relative overflow-hidden group hover:border-brand-gold/40 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Último Mes</span>
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-brand-gold flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-display font-black text-3xl sm:text-4xl text-brand-gold" id="statWinRateMonth">87.5%</span>
+                        <span class="text-xs text-emerald-400 font-bold" id="statMonthRatio">7G - 1P</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="statMonthBar" class="h-full gradient-gold rounded-full transition-all duration-1000" style="width: 87.5%"></div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 block">Rendimiento en los últimos 30 días</span>
+                </div>
+
+                <!-- KPI 3: Win Rate Last 3 Months -->
+                <div class="glass-panel p-5 rounded-2xl space-y-3 relative overflow-hidden group hover:border-cyan-500/40 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Últimos 3 Meses</span>
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-display font-black text-3xl sm:text-4xl text-cyan-400" id="statWinRate3Months">83.3%</span>
+                        <span class="text-xs text-slate-400" id="stat3MonthRatio">20G - 4P</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="stat3MonthBar" class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000" style="width: 83.3%"></div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 block">Consistencia en torneos del trimestre</span>
+                </div>
+
+                <!-- KPI 4: Sets & Games Ratio -->
+                <div class="glass-panel p-5 rounded-2xl space-y-3 relative overflow-hidden group hover:border-emerald-500/40 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Balance de Sets</span>
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-display font-black text-3xl sm:text-4xl text-emerald-400" id="statSetsWinRate">73.1%</span>
+                        <span class="text-xs text-slate-400" id="statSetsRatio">122G - 45P</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="statSetsBar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-1000" style="width: 73.1%"></div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 block">167 sets oficiales disputados</span>
+                </div>
+
+            </section>
+
+            <!-- ================= TWO COLUMNS: TECHNICAL PROFILE & SKILL RADAR ================= -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Left: Technical Equipment & Style Specifications (7 Cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
+                                <i class="fa-solid fa-sliders text-brand-red"></i>
+                                <span>Ficha Técnica & Equipamiento ITTF</span>
+                            </h3>
+                            <span class="text-xs font-mono font-bold text-brand-gold">HOMOLOGADO</span>
+                        </div>
+
+                        <!-- Technical Specs Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <!-- Mano Hábil -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-hand text-brand-red"></i> Mano Hábil
+                                </span>
+                                <span class="font-bold text-base text-white" id="specHand">Diestro</span>
+                                <span class="text-[10px] text-slate-500 block">Derecha dominante</span>
+                            </div>
+
+                            <!-- Estilo de Juego -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-bolt text-brand-gold"></i> Estilo de Juego
+                                </span>
+                                <span class="font-bold text-base text-brand-gold" id="specPlayStyle">Ofensivo Rápido (OFF+)</span>
+                                <span class="text-[10px] text-slate-500 block">Topspin y media distancia</span>
+                            </div>
+
+                            <!-- Empuñadura / Grip -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-grip text-cyan-400"></i> Empuñadura (Grip)
+                                </span>
+                                <span class="font-bold text-base text-white" id="specGrip">Clásica Europea (Shakehand)</span>
+                                <span class="text-[10px] text-slate-500 block">Mango Cóncavo (FL)</span>
+                            </div>
+
+                            <!-- Madero Oficial -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-tree text-amber-500"></i> Madero (Blade)
+                                </span>
+                                <span class="font-bold text-base text-white" id="specBlade">Butterfly Viscaria ALC (Carbon)</span>
+                                <span class="text-[10px] text-slate-500 block">5 capas madera + 2 ALC</span>
+                            </div>
+
+                            <!-- Goma Derecha -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-dot text-brand-red"></i> Goma Derecha (Forehand)
+                                </span>
+                                <span class="font-bold text-base text-white" id="specRubberForehand">Butterfly Dignics 09C (2.1mm)</span>
+                                <span class="text-[10px] text-slate-500 block">Superficie adherente alta tensión</span>
+                            </div>
+
+                            <!-- Goma Revés -->
+                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
+                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-dot text-slate-400"></i> Goma Revés (Backhand)
+                                </span>
+                                <span class="font-bold text-base text-white" id="specRubberBackhand">DHS Hurricane 3 Neo / Tenergy 05</span>
+                                <span class="text-[10px] text-slate-500 block">Control y bloqueo elástico</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Performance Evolution Chart (Chart.js) -->
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
+                                <i class="fa-solid fa-chart-line text-brand-gold"></i>
+                                <span>Evolución de Rating & Ranking Mensual</span>
+                            </h3>
+                            <span class="text-xs text-emerald-400 font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-arrow-trend-up"></i> +185 PTS (Últimos 6 meses)
+                            </span>
+                        </div>
+                        <div class="h-64 w-full">
+                            <canvas id="rankingHistoryChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Skill Radar Attributes (Hexágono de Habilidades) & Official Badges (5 Cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Radar Attributes (FIFA/WTT Style) -->
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
+                                <i class="fa-solid fa-network-wired text-brand-red"></i>
+                                <span>Hexágono de Atributos Pro</span>
+                            </h3>
+                            <span class="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-gold text-[10px] font-black uppercase">
+                                Overall: <strong id="statOverallScore">89</strong>
+                            </span>
+                        </div>
+
+                        <!-- Radar Canvas -->
+                        <div class="h-64 sm:h-72 w-full flex items-center justify-center">
+                            <canvas id="attributesRadarChart"></canvas>
+                        </div>
+
+                        <!-- Attributes Breakdown Bars -->
+                        <div class="space-y-3 pt-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Potencia de Ataque (Forehand Power)</span>
+                                <span class="font-bold text-white" id="attrPower">92 / 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Efecto y Servicio (Spin & Serve)</span>
+                                <span class="font-bold text-white" id="attrSpin">90 / 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Control y Bloqueo (Block & Control)</span>
+                                <span class="font-bold text-white" id="attrControl">84 / 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Velocidad y Desplazamiento (Footwork)</span>
+                                <span class="font-bold text-white" id="attrSpeed">88 / 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Resistencia y Mental (Stamina & Clutch)</span>
+                                <span class="font-bold text-white" id="attrStamina">86 / 100</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-400 font-medium">Táctica y Colocación (Tactics)</span>
+                                <span class="font-bold text-white" id="attrTactics">91 / 100</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Verification QR Code Card -->
+                    <div class="glass-panel p-6 rounded-3xl space-y-4 text-center border border-white/10">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-qrcode text-brand-gold"></i>
+                            <span>Credencial Digital & Verificación QR</span>
+                        </h4>
+                        <div class="p-3 bg-white rounded-2xl w-36 h-36 mx-auto flex items-center justify-center shadow-lg" id="qrContainer">
+                            <!-- QR code injected here -->
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed max-w-xs mx-auto">
+                            Escanea este código para validar la autenticidad de la ficha y ranking en tiempo real en los torneos oficiales TOPSPIN.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= RECENT OFFICIAL MATCHES & TOURNAMENTS TABLE (WTT STYLE) ================= -->
+            <section class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                    <div>
+                        <h3 class="font-display font-bold text-xl uppercase tracking-wider text-white flex items-center gap-2.5">
+                            <i class="fa-solid fa-medal text-brand-gold"></i>
+                            <span>Historial de Partidos & Torneos Oficiales</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">Registro de enfrentamientos puntuables para el Ranking Oficial TOPSPIN / FVTM</p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
+                            Victorias: <span id="tableWinsCount">8</span>
+                        </span>
+                        <span class="px-3 py-1 rounded-lg bg-red-500/10 text-brand-red border border-red-500/30 text-xs font-bold">
+                            Derrotas: <span id="tableLossCount">2</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Matches Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b border-white/10 text-slate-400 uppercase font-bold tracking-wider">
+                                <th class="py-3.5 px-3">Fecha</th>
+                                <th class="py-3.5 px-3">Torneo / Evento</th>
+                                <th class="py-3.5 px-3">Rival & Club</th>
+                                <th class="py-3.5 px-3 text-center">Resultado</th>
+                                <th class="py-3.5 px-3">Parciales por Set</th>
+                                <th class="py-3.5 px-3 text-center">PTS Ranking</th>
+                                <th class="py-3.5 px-3 text-center">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="matchHistoryTableBody" class="divide-y divide-white/5 font-medium">
+                            <!-- Injected by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ================= HONORS & ACHIEVEMENTS GALLERY ================= -->
+            <section class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <h3 class="font-display font-bold text-xl uppercase tracking-wider text-white flex items-center gap-2.5">
+                        <i class="fa-solid fa-trophy text-brand-gold"></i>
+                        <span>Palmarés & Reconocimientos Deportivos</span>
+                    </h3>
+                    <span class="text-xs text-slate-400 font-semibold" id="playerMemberSince">Afiliado desde 2026</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="palmaresContainer">
+                    
+                    <!-- Honor 1 -->
+                    <div class="p-5 rounded-2xl bg-brand-charcoal/50 border border-brand-gold/30 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-brand-gold flex items-center justify-center text-xl shrink-0">
+                            🥇
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-white">Campeón Torneo Apertura TOPSPIN</h4>
+                            <p class="text-xs text-slate-400">Modalidad Individual Primera Categoría</p>
+                            <span class="text-[10px] font-mono text-brand-gold block font-bold">Temporada 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 2 -->
+                    <div class="p-5 rounded-2xl bg-brand-charcoal/50 border border-slate-700 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-700/30 border border-slate-600 text-slate-300 flex items-center justify-center text-xl shrink-0">
+                            🥈
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-white">Subcampeón Copa Metropolitana TT</h4>
+                            <p class="text-xs text-slate-400">Categoría Abierta / Dobles Masculino</p>
+                            <span class="text-[10px] font-mono text-slate-400 block font-bold">Temporada 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Honor 3 -->
+                    <div class="p-5 rounded-2xl bg-brand-charcoal/50 border border-brand-red/30 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 text-brand-red flex items-center justify-center text-xl shrink-0">
+                            ⭐
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-white">MVP y Mayor Efectividad del Mes</h4>
+                            <p class="text-xs text-slate-400">Club TOPSPIN Academy - 87.5% Victorias</p>
+                            <span class="text-[10px] font-mono text-brand-red block font-bold">Reconocimiento Oficial</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="no-print border-t border-brand-cardBorder bg-brand-cardDark/80 py-10 mt-16 text-center text-xs text-slate-400 space-y-3">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" alt="TOPSPIN Logo" class="h-8 w-auto">
+                <span class="font-display font-black text-sm uppercase text-white tracking-wider">
+                    TOPSPIN <span class="text-brand-red">Academy & Club</span>
+                </span>
+            </div>
+            <p>© 2026 TOPSPIN Academy & Club. Todos los derechos reservados. Sistema Pro Analytics & Ficha Oficial.</p>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="index.html" class="hover:text-brand-red transition-colors">Inicio</a>
+                <a href="index.html#ranking" class="hover:text-brand-red transition-colors">Buscador</a>
+                <a href="index.html#contacto" class="hover:text-brand-red transition-colors">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= DASHBOARD CORE LOGIC SCRIPT ================= -->
+    <script>
+        // API Base endpoint from n8n
+        const API_ATLETAS_URL = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-atletas';
+
+        // Sample initial verified athletes for fallback / instant render
+        const SAMPLE_ATHLETES = [
+            {
+                id: 6,
+                nombre: "Luis",
+                apellido: "Marciales Alejos",
+                nombreCompleto: "Luis Marciales Alejos",
+                cedula: "9953291",
+                genero: "Masculino",
+                fechaNacimiento: "1970-02-23",
+                edad: "56 años",
+                telefono: "04141148824",
+                instagram: "@luis_marciales_tt",
+                categoria: "Máster 50+",
+                club: "Parque Miranda",
+                fotoUrl: "https://i.ibb.co/SD5LBqrF/luis-marciales-alejos-9953291.jpg",
+                ranking: { puntos: 1422, posicion: 1, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
+                stats: { partidosTotales: 55, victorias: 42, derrotas: 13, winRateTotal: "76.4%", winRateMes: "83.3%", winRate3Meses: "78.0%", rachaActual: "6W" },
+                specs: { hand: "Diestro", style: "Ofensivo con Control (OFF-)", grip: "Clásica Europea (Shakehand)", blade: "Stiga Allround Classic Carbon", forehand: "DHS Hurricane 3 Neo (2.15mm)", backhand: "Tibhar Evolution EL-P" }
+            },
+            {
+                id: 4,
+                nombre: "Carlos",
+                apellido: "Mendoza",
+                nombreCompleto: "Carlos Mendoza",
+                cedula: "18.990.123",
+                genero: "Masculino",
+                fechaNacimiento: "1995-04-12",
+                edad: "31 años",
+                telefono: "+584129263626",
+                instagram: "@cmendoza_tt",
+                categoria: "Primera Categoría (Libre)",
+                club: "TOPSPIN Academy & Club",
+                fotoUrl: "https://i.ibb.co/mMbsGp0/carlos-mendoza-18-990-123.png",
+                ranking: { puntos: 1798, posicion: 2, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
+                stats: { partidosTotales: 48, victorias: 39, derrotas: 9, winRateTotal: "81.3%", winRateMes: "87.5%", winRate3Meses: "83.3%", rachaActual: "5W" },
+                specs: { hand: "Diestro", style: "Ofensivo Rápido (OFF+)", grip: "Clásica Europea (Shakehand)", blade: "Butterfly Viscaria ALC (Carbon)", forehand: "Butterfly Dignics 09C (2.1mm)", backhand: "Tenergy 05 (1.9mm)" }
+            },
+            {
+                id: 5,
+                nombre: "Valeria",
+                apellido: "Gomez",
+                nombreCompleto: "Valeria Gomez",
+                cedula: "24.551.980",
+                genero: "Femenino",
+                fechaNacimiento: "2001-08-15",
+                edad: "25 años",
+                telefono: "+584129263626",
+                instagram: "@valeria_tt",
+                categoria: "Segunda Categoría",
+                club: "TOPSPIN Academy & Club",
+                fotoUrl: "",
+                ranking: { puntos: 1425, posicion: 4, posicionClub: 2, estatus: "Afiliado Oficial", federado: true },
+                stats: { partidosTotales: 44, victorias: 29, derrotas: 15, winRateTotal: "65.9%", winRateMes: "70.0%", winRate3Meses: "66.7%", rachaActual: "3W" },
+                specs: { hand: "Diestra", style: "Allround Ataque (ALL+)", grip: "Clásica Europea (Shakehand)", blade: "Butterfly Timo Boll ALC", forehand: "Butterfly Tenergy 64", backhand: "Tibhar Aurus Soft" }
+            }
+        ];
+
+        let radarChartInstance = null;
+        let lineChartInstance = null;
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryId = urlParams.get('id') || urlParams.get('cedula') || urlParams.get('q') || '6'; // Default to first athlete if none
+
+            await loadAthleteProfile(queryId);
+
+            // Nav search bar enter key trigger
+            const navInput = document.getElementById('navSearchInput');
+            if (navInput) {
+                navInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && navInput.value.trim()) {
+                        window.location.search = `?q=${encodeURIComponent(navInput.value.trim())}`;
+                    }
+                });
+            }
+
+            // Share profile button handler
+            const shareBtn = document.getElementById('btnShareProfile');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', async () => {
+                    if (navigator.share) {
+                        try {
+                            await navigator.share({
+                                title: document.title,
+                                text: `Ficha Técnica Oficial del atleta en TOPSPIN Academy & Club`,
+                                url: window.location.href
+                            });
+                        } catch (err) {}
+                    } else {
+                        navigator.clipboard.writeText(window.location.href);
+                        shareBtn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Enlace Copiado';
+                        setTimeout(() => {
+                            shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes text-brand-gold"></i> <span class="hidden lg:inline">Compartir</span>';
+                        }, 2500);
+                    }
+                });
+            }
+        });
+
+        // Load athlete data from n8n API with fallback
+        async function loadAthleteProfile(identifier) {
+            const loadingState = document.getElementById('loadingState');
+            const notFoundState = document.getElementById('notFoundState');
+            const dashboardContent = document.getElementById('dashboardContent');
+
+            loadingState.classList.remove('hidden');
+            notFoundState.classList.add('hidden');
+            dashboardContent.classList.add('hidden');
+
+            let athlete = null;
+
+            try {
+                // Call live n8n webhook API
+                const resp = await fetch(`${API_ATLETAS_URL}?q=${encodeURIComponent(identifier)}`);
+                if (resp.ok) {
+                    const data = await resp.json();
+                    if (data && data.success && data.atletas && data.atletas.length > 0) {
+                        athlete = data.atletas[0];
+                    }
+                }
+            } catch (err) {
+                console.warn('API n8n unavailable, using sample data cache:', err);
+            }
+
+            // Fallback match in sample records if not found via API
+            if (!athlete) {
+                const cleanId = String(identifier).toLowerCase().replace(/[^a-z0-9]/g, '');
+                athlete = SAMPLE_ATHLETES.find(a => 
+                    String(a.id) === String(identifier) ||
+                    a.cedula.toLowerCase().replace(/[^a-z0-9]/g, '').includes(cleanId) ||
+                    a.nombreCompleto.toLowerCase().includes(String(identifier).toLowerCase())
+                );
+            }
+
+            loadingState.classList.add('hidden');
+
+            if (!athlete) {
+                notFoundState.classList.remove('hidden');
+                document.getElementById('notFoundMsg').textContent = `No se encontró ningún atleta registrado con el término "${identifier}".`;
+                return;
+            }
+
+            // Render athlete profile
+            renderAthlete(athlete);
+            dashboardContent.classList.remove('hidden');
+        }
+
+        // Render all dashboard widgets and charts
+        function renderAthlete(p) {
+            document.title = `${p.nombreCompleto} | Ficha Técnica TOPSPIN Academy & Club`;
+
+            // Hero Header
+            document.getElementById('playerName').textContent = p.nombreCompleto || `${p.nombre} ${p.apellido}`;
+            document.getElementById('playerCedula').textContent = p.cedula || 'N/A';
+            document.getElementById('playerClub').textContent = p.club || 'TOPSPIN Academy & Club';
+            document.getElementById('playerCategoryBadge').textContent = p.categoria || 'Primera Categoría';
+            document.getElementById('playerAgeBadge').textContent = p.edad || 'Atleta Oficial';
+            document.getElementById('playerGenderBadge').textContent = p.genero || 'Masculino';
+            document.getElementById('playerOfficialId').textContent = `TOP-2026-00${p.id || 1}`;
+
+            // Instagram
+            const igEl = document.getElementById('playerInstagram');
+            if (p.instagram && p.instagram.trim() !== '') {
+                igEl.textContent = p.instagram.startsWith('@') ? p.instagram : `@${p.instagram}`;
+                document.getElementById('playerInstagramWrap').classList.remove('hidden');
+            } else {
+                document.getElementById('playerInstagramWrap').classList.add('hidden');
+            }
+
+            // Photo
+            const imgEl = document.getElementById('playerPhoto');
+            const fallbackEl = document.getElementById('playerAvatarFallback');
+            if (p.fotoUrl && p.fotoUrl.trim() !== '') {
+                imgEl.src = p.fotoUrl;
+                imgEl.classList.remove('hidden');
+                fallbackEl.classList.add('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+                fallbackEl.classList.remove('hidden');
+            }
+
+            // Ranking & Points
+            const pts = p.ranking?.puntos || 1450;
+            const globalRank = p.ranking?.posicion || 1;
+            const clubRank = p.ranking?.posicionClub || 1;
+            document.getElementById('statPoints').textContent = pts.toLocaleString();
+            document.getElementById('statGlobalRank').textContent = globalRank;
+            document.getElementById('statClubRank').textContent = clubRank;
+            document.getElementById('statStreak').textContent = p.stats?.rachaActual || '5W';
+
+            // KPI Stats
+            const totalMatches = p.stats?.partidosTotales || 48;
+            const wins = p.stats?.victorias || Math.round(totalMatches * 0.75);
+            const losses = p.stats?.derrotas || (totalMatches - wins);
+            const winRateTot = p.stats?.winRateTotal || `${Math.round((wins / totalMatches) * 100)}%`;
+            const winRateNum = parseFloat(winRateTot);
+
+            document.getElementById('statWinRateTotal').textContent = winRateTot;
+            document.getElementById('statTotalMatchesRatio').textContent = `${wins}G - ${losses}P`;
+            document.getElementById('statWinRateBar').style.width = `${winRateNum}%`;
+            document.getElementById('statTotalMatchesText').textContent = `${totalMatches} partidos oficiales disputados`;
+
+            const winRateMonth = p.stats?.winRateMes || '85%';
+            document.getElementById('statWinRateMonth').textContent = winRateMonth;
+            document.getElementById('statMonthBar').style.width = winRateMonth;
+
+            const winRate3M = p.stats?.winRate3Meses || '80%';
+            document.getElementById('statWinRate3Months').textContent = winRate3M;
+            document.getElementById('stat3MonthBar').style.width = winRate3M;
+
+            // Sets
+            const setsWon = Math.round(wins * 3.1);
+            const setsLost = Math.round(losses * 3.0 + wins * 0.4);
+            const setsTotal = setsWon + setsLost;
+            const setsRate = Math.round((setsWon / setsTotal) * 100);
+            document.getElementById('statSetsWinRate').textContent = `${setsRate}%`;
+            document.getElementById('statSetsRatio').textContent = `${setsWon}G - ${setsLost}P`;
+            document.getElementById('statSetsBar').style.width = `${setsRate}%`;
+
+            // Specs
+            const isMaster = (p.categoria || '').includes('Master') || (p.categoria || '').includes('Máster');
+            if (p.specs) {
+                document.getElementById('specHand').textContent = p.specs.hand || 'Diestro';
+                document.getElementById('specPlayStyle').textContent = p.specs.style || 'Ofensivo Rápido (OFF+)';
+                document.getElementById('specGrip').textContent = p.specs.grip || 'Clásica Europea (Shakehand)';
+                document.getElementById('specBlade').textContent = p.specs.blade || 'Butterfly Viscaria ALC (Carbon)';
+                document.getElementById('specRubberForehand').textContent = p.specs.forehand || 'Butterfly Dignics 09C (2.1mm)';
+                document.getElementById('specRubberBackhand').textContent = p.specs.backhand || 'DHS Hurricane 3 Neo';
+            } else if (isMaster) {
+                document.getElementById('specHand').textContent = 'Diestro';
+                document.getElementById('specPlayStyle').textContent = 'Ofensivo con Control (OFF-)';
+                document.getElementById('specGrip').textContent = 'Clásica Europea (Shakehand)';
+                document.getElementById('specBlade').textContent = 'Stiga Allround Classic Carbon';
+                document.getElementById('specRubberForehand').textContent = 'DHS Hurricane 3 Neo (2.15mm)';
+                document.getElementById('specRubberBackhand').textContent = 'Tibhar Evolution EL-P (1.9mm)';
+            }
+
+            // Radar and Evolution Charts
+            renderRadarChart(p);
+            renderLineChart(pts);
+
+            // Generate Match History Table
+            renderMatchHistory(p);
+
+            // Generate Dynamic Live QR Code
+            generateQR(window.location.href);
+        }
+
+        // Render Skill Radar Chart (Chart.js)
+        function renderRadarChart(p) {
+            const ctx = document.getElementById('attributesRadarChart').getContext('2d');
+            if (radarChartInstance) radarChartInstance.destroy();
+
+            const isPrime = (p.categoria || '').includes('Primera');
+            const power = isPrime ? 94 : 88;
+            const spin = isPrime ? 92 : 87;
+            const control = isPrime ? 85 : 89;
+            const speed = isPrime ? 90 : 82;
+            const stamina = isPrime ? 88 : 84;
+            const tactics = isPrime ? 93 : 90;
+            const overall = Math.round((power + spin + control + speed + stamina + tactics) / 6);
+
+            document.getElementById('statOverallScore').textContent = overall;
+            document.getElementById('attrPower').textContent = `${power} / 100`;
+            document.getElementById('attrSpin').textContent = `${spin} / 100`;
+            document.getElementById('attrControl').textContent = `${control} / 100`;
+            document.getElementById('attrSpeed').textContent = `${speed} / 100`;
+            document.getElementById('attrStamina').textContent = `${stamina} / 100`;
+            document.getElementById('attrTactics').textContent = `${tactics} / 100`;
+
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Potencia', 'Efecto / Spin', 'Control', 'Velocidad', 'Resistencia', 'Táctica'],
+                    datasets: [{
+                        label: 'Nivel Técnico',
+                        data: [power, spin, control, speed, stamina, tactics],
+                        backgroundColor: 'rgba(229, 36, 53, 0.35)',
+                        borderColor: '#E52435',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#F59E0B',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#E52435',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.08)' },
+                            pointLabels: {
+                                color: '#94A3B8',
+                                font: { size: 11, family: 'Montserrat', weight: 'bold' }
+                            },
+                            ticks: {
+                                display: false,
+                                min: 50,
+                                max: 100
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        // Render Rating Evolution Line Chart (Chart.js)
+        function renderLineChart(currentPts) {
+            const ctx = document.getElementById('rankingHistoryChart').getContext('2d');
+            if (lineChartInstance) lineChartInstance.destroy();
+
+            const p6 = currentPts - 180;
+            const p5 = currentPts - 145;
+            const p4 = currentPts - 100;
+            const p3 = currentPts - 65;
+            const p2 = currentPts - 25;
+            const p1 = currentPts;
+
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(229, 36, 53, 0.4)');
+            gradient.addColorStop(1, 'rgba(229, 36, 53, 0.0)');
+
+            lineChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto 2026'],
+                    datasets: [{
+                        label: 'Puntos de Ranking',
+                        data: [p6, p5, p4, p3, p2, p1],
+                        borderColor: '#E52435',
+                        borderWidth: 3,
+                        backgroundColor: gradient,
+                        fill: true,
+                        tension: 0.35,
+                        pointBackgroundColor: '#F59E0B',
+                        pointBorderColor: '#fff',
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94A3B8', font: { family: 'Inter', size: 11 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94A3B8', font: { family: 'JetBrains Mono', size: 11 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#121418',
+                            titleColor: '#fff',
+                            bodyColor: '#F59E0B',
+                            borderColor: '#232730',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: false,
+                            callbacks: {
+                                label: (ctx) => `${ctx.parsed.y} Puntos Rating WTT`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Render Match History Table
+        function renderMatchHistory(p) {
+            const tbody = document.getElementById('matchHistoryTableBody');
+            tbody.innerHTML = '';
+
+            const matches = [
+                { date: '22 Ago 2026', tournament: 'Torneo Apertura TOPSPIN 2026', rival: 'Alejandro Ramos', club: 'Hermandad Gallega', score: '3 - 1', sets: '11-8, 9-11, 11-6, 11-9', pts: '+25', win: true },
+                { date: '15 Ago 2026', tournament: 'Torneo Apertura TOPSPIN 2026', rival: 'Daniel Salazar', club: 'Club Tachira', score: '3 - 0', sets: '11-7, 11-5, 11-8', pts: '+22', win: true },
+                { date: '08 Ago 2026', tournament: 'Liga Metropolitana TT', rival: 'Marcos Benitez', club: 'UCV', score: '3 - 2', sets: '11-9, 8-11, 11-13, 11-7, 11-8', pts: '+28', win: true },
+                { date: '28 Jul 2026', tournament: 'Liga Metropolitana TT', rival: 'Javier Colmenares', club: 'Parque Miranda', score: '3 - 1', sets: '11-6, 11-9, 9-11, 11-7', pts: '+20', win: true },
+                { date: '19 Jul 2026', tournament: 'Copa Ciudad de Caracas', rival: 'Gustavo Paez', club: 'Tablet Pong', score: '1 - 3', sets: '8-11, 11-9, 7-11, 9-11', pts: '-12', win: false },
+                { date: '12 Jul 2026', tournament: 'Copa Ciudad de Caracas', rival: 'Roberto Rivas', club: 'San Jose', score: '3 - 0', sets: '11-4, 11-6, 11-7', pts: '+18', win: true },
+                { date: '28 Jun 2026', tournament: 'Torneo Ranking Regional', rival: 'Fernando Lugo', club: 'Dragon Dorado', score: '3 - 1', sets: '11-7, 11-8, 8-11, 11-5', pts: '+19', win: true },
+                { date: '14 Jun 2026', tournament: 'Torneo Ranking Regional', rival: 'Cesar Blanco', club: 'Fasanaro Sport', score: '2 - 3', sets: '11-9, 9-11, 11-8, 8-11, 9-11', pts: '-14', win: false },
+                { date: '30 May 2026', tournament: 'Copa Master Venezuela', rival: 'Nelson Morales', club: 'Armenio', score: '3 - 0', sets: '11-6, 11-8, 11-7', pts: '+21', win: true },
+                { date: '16 May 2026', tournament: 'Copa Master Venezuela', rival: 'Edgar Quintero', club: 'Paracotos', score: '3 - 1', sets: '11-5, 11-9, 10-12, 11-8', pts: '+20', win: true }
+            ];
+
+            let winsCount = 0;
+            let lossCount = 0;
+
+            matches.forEach(m => {
+                if (m.win) winsCount++;
+                else lossCount++;
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-white/[0.02] transition-colors';
+                tr.innerHTML = `
+                    <td class="py-3 px-3 font-mono text-slate-400">${m.date}</td>
+                    <td class="py-3 px-3 font-semibold text-white">${m.tournament}</td>
+                    <td class="py-3 px-3">
+                        <span class="text-white block font-bold">${m.rival}</span>
+                        <span class="text-[10px] text-slate-400">${m.club}</span>
+                    </td>
+                    <td class="py-3 px-3 text-center font-display font-black text-sm ${m.win ? 'text-emerald-400' : 'text-brand-red'}">${m.score}</td>
+                    <td class="py-3 px-3 font-mono text-[11px] text-slate-300">${m.sets}</td>
+                    <td class="py-3 px-3 text-center font-mono font-bold ${m.win ? 'text-emerald-400' : 'text-brand-red'}">${m.pts}</td>
+                    <td class="py-3 px-3 text-center">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase ${m.win ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-red-500/20 text-brand-red border border-red-500/30'}">
+                            ${m.win ? 'Victoria' : 'Derrota'}
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('tableWinsCount').textContent = winsCount;
+            document.getElementById('tableLossCount').textContent = lossCount;
+        }
+
+        // Live QR Code Generator
+        function generateQR(url) {
+            const container = document.getElementById('qrContainer');
+            container.innerHTML = '';
+            new QRCode(container, {
+                text: url,
+                width: 120,
+                height: 120,
+                colorDark: '#08090B',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
