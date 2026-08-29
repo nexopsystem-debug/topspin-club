@@ -92,12 +92,12 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .wtt-card-border {
+        .pro-card-border {
             border: 1px solid rgba(229, 36, 53, 0.25);
             position: relative;
         }
 
-        .wtt-card-border::before {
+        .pro-card-border::before {
             content: '';
             position: absolute;
             top: 0;
@@ -177,7 +177,7 @@
                     </a>
 
                     <a href="index.html" class="flex items-center gap-3 group">
-                        <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" 
+                        <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf9.png" 
                              alt="TOPSPIN Logo" 
                              class="h-11 w-auto object-contain transition-transform group-hover:scale-105">
                         <div>
@@ -185,7 +185,7 @@
                                 TOP<span class="text-brand-red">SPIN</span>
                             </span>
                             <span class="text-[9px] font-bold tracking-widest text-brand-gold uppercase block mt-0.5">
-                                Pro Analytics & WTT Ranking
+                                Pro Analytics & Ranking Oficial
                             </span>
                         </div>
                     </a>
@@ -267,11 +267,11 @@
         <div id="dashboardContent" class="hidden space-y-8">
 
             <!-- ================= HERO HEADER: ATHLETE IDENTITY CARD ================= -->
-            <section class="relative gradient-dark-hero rounded-3xl p-6 sm:p-8 lg:p-10 border border-brand-cardBorder shadow-card-dark overflow-hidden wtt-card-border">
+            <section class="relative gradient-dark-hero rounded-3xl p-6 sm:p-8 lg:p-10 border border-brand-cardBorder shadow-card-dark overflow-hidden pro-card-border">
                 
                 <!-- Ambient Watermark & Glows -->
                 <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none select-none">
-                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" alt="TOPSPIN Watermark" class="w-96 h-96 object-contain">
+                    <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf9.png" alt="TOPSPIN Watermark" class="w-96 h-96 object-contain">
                 </div>
                 <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -287,7 +287,9 @@
                             <!-- Profile Photo Container -->
                             <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-brand-cardDark border-2 border-brand-red/80 overflow-hidden flex items-center justify-center shadow-2xl">
                                 <img id="playerPhoto" src="" alt="Foto del Atleta" 
-                                     class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                                     loading="eager" fetchpriority="high" decoding="async"
+                                     class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                     onerror="this.style.display='none'; document.getElementById('playerAvatarFallback').classList.remove('hidden');">
                                 <div id="playerAvatarFallback" class="hidden w-full h-full bg-gradient-to-br from-brand-charcoal to-brand-cardDark flex flex-col items-center justify-center text-slate-500">
                                     <i class="fa-solid fa-table-tennis-paddle-ball text-5xl mb-2 text-brand-red/70"></i>
                                     <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Atleta TOPSPIN</span>
@@ -303,8 +305,8 @@
 
                         <!-- Nationality & Affiliation Badge -->
                         <div class="flex items-center gap-2 mt-6">
-                            <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-slate-300 flex items-center gap-1.5">
-                                <span>🇻🇪</span> Venezuela
+                            <span id="playerLocationBadge" class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                                <span id="playerFlag">🇻🇪</span> <span id="playerLocationText">Caracas, Venezuela</span>
                             </span>
                             <span id="badgeFVTMOfficial" class="px-3 py-1 rounded-full bg-brand-burgundy/60 border border-brand-red/50 text-xs font-bold text-brand-red uppercase tracking-wider">
                                 FVTM / TOPSPIN
@@ -494,7 +496,7 @@
                 <!-- Left: Technical Equipment & Style Specifications (7 Cols) -->
                 <div class="lg:col-span-7 space-y-6">
                     
-                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 pro-card-border">
                         <div class="flex items-center justify-between border-b border-white/10 pb-4">
                             <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
                                 <i class="fa-solid fa-sliders text-brand-red"></i>
@@ -585,7 +587,7 @@
                 <div class="lg:col-span-5 space-y-6">
                     
                     <!-- Radar Attributes (FIFA/WTT Style) -->
-                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 pro-card-border">
                         <div class="flex items-center justify-between border-b border-white/10 pb-4">
                             <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
                                 <i class="fa-solid fa-network-wired text-brand-red"></i>
@@ -649,7 +651,7 @@
             </section>
 
             <!-- ================= RECENT OFFICIAL MATCHES & TOURNAMENTS TABLE (WTT STYLE) ================= -->
-            <section class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 wtt-card-border">
+            <section class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 pro-card-border">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
                     <div>
                         <h3 class="font-display font-bold text-xl uppercase tracking-wider text-white flex items-center gap-2.5">
@@ -749,7 +751,7 @@
     <footer class="no-print border-t border-brand-cardBorder bg-brand-cardDark/80 py-10 mt-16 text-center text-xs text-slate-400 space-y-3">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf5.png" alt="TOPSPIN Logo" class="h-8 w-auto">
+                <img src="https://assets.cdn.filesafe.space/xfrk6QhbC65ipF3PJcjA/media/6a91a947d6d6b7ebddb6fbf9.png" alt="TOPSPIN Logo" class="h-8 w-auto">
                 <span class="font-display font-black text-sm uppercase text-white tracking-wider">
                     TOPSPIN <span class="text-brand-red">Academy & Club</span>
                 </span>
@@ -768,7 +770,7 @@
         // API Base endpoint from n8n
         const API_ATLETAS_URL = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-atletas';
 
-        // Sample initial verified athletes for fallback / instant render
+        // Sample initial verified athletes for instant offline/direct render
         const SAMPLE_ATHLETES = [
             {
                 id: 6,
@@ -776,9 +778,14 @@
                 apellido: "Marciales Alejos",
                 nombreCompleto: "Luis Marciales Alejos",
                 cedula: "9953291",
+                tipoDocumento: "V",
+                numeroDocumento: "9953291",
                 genero: "Masculino",
                 fechaNacimiento: "1970-02-23",
                 edad: "56 años",
+                pais: "Venezuela",
+                estado: "Miranda",
+                ciudad: "Caracas",
                 telefono: "04141148824",
                 instagram: "@luis_marciales_tt",
                 categoria: "Máster 50+",
@@ -793,10 +800,15 @@
                 nombre: "Carlos",
                 apellido: "Mendoza",
                 nombreCompleto: "Carlos Mendoza",
-                cedula: "18.990.123",
+                cedula: "18990123",
+                tipoDocumento: "V",
+                numeroDocumento: "18990123",
                 genero: "Masculino",
                 fechaNacimiento: "1995-04-12",
                 edad: "31 años",
+                pais: "Venezuela",
+                estado: "Distrito Capital",
+                ciudad: "Caracas",
                 telefono: "+584129263626",
                 instagram: "@cmendoza_tt",
                 categoria: "Primera Categoría (Libre)",
@@ -811,10 +823,15 @@
                 nombre: "Valeria",
                 apellido: "Gomez",
                 nombreCompleto: "Valeria Gomez",
-                cedula: "24.551.980",
+                cedula: "24551980",
+                tipoDocumento: "V",
+                numeroDocumento: "24551980",
                 genero: "Femenino",
                 fechaNacimiento: "2001-08-15",
                 edad: "25 años",
+                pais: "Venezuela",
+                estado: "Miranda",
+                ciudad: "Caracas",
                 telefono: "+584129263626",
                 instagram: "@valeria_tt",
                 categoria: "Segunda Categoría",
@@ -832,7 +849,7 @@
         // Initialize on load
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const queryId = urlParams.get('id') || urlParams.get('cedula') || urlParams.get('q') || '6'; // Default to first athlete if none
+            const queryId = urlParams.get('id') || urlParams.get('cedula') || urlParams.get('q') || '9953291';
 
             await loadAthleteProfile(queryId);
 
@@ -841,7 +858,8 @@
             if (navInput) {
                 navInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' && navInput.value.trim()) {
-                        window.location.search = `?q=${encodeURIComponent(navInput.value.trim())}`;
+                        const cleanVal = navInput.value.trim().replace(/[^a-zA-Z0-9]/g, '');
+                        window.location.search = `?id=${encodeURIComponent(cleanVal)}`;
                     }
                 });
             }
@@ -869,7 +887,7 @@
             }
         });
 
-        // Load athlete data from n8n API with fallback
+        // Load athlete data from n8n API with instant cache & sample fallback
         async function loadAthleteProfile(identifier) {
             const loadingState = document.getElementById('loadingState');
             const notFoundState = document.getElementById('notFoundState');
@@ -880,74 +898,135 @@
             dashboardContent.classList.add('hidden');
 
             let athlete = null;
+            const cleanQuery = String(identifier).toLowerCase().replace(/[^a-z0-9]/g, '');
 
             try {
-                // Call live n8n webhook API
-                const resp = await fetch(`${API_ATLETAS_URL}?q=${encodeURIComponent(identifier)}`);
+                // Fetch from live n8n webhook API
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 4000); // 4s timeout for speed
+
+                const resp = await fetch(`${API_ATLETAS_URL}?q=${encodeURIComponent(identifier)}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+
                 if (resp.ok) {
                     const data = await resp.json();
-                    if (data && data.success && data.atletas && data.atletas.length > 0) {
-                        athlete = data.atletas[0];
+                    if (data && data.success && Array.isArray(data.atletas) && data.atletas.length > 0) {
+                        // Find most accurate match in returned array
+                        athlete = data.atletas.find(a => {
+                            const cCed = (a.cedula || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+                            return cCed === cleanQuery || String(a.id) === String(identifier);
+                        }) || data.atletas[0];
                     }
                 }
             } catch (err) {
-                console.warn('API n8n unavailable, using sample data cache:', err);
+                console.warn('API n8n timeout o error, usando fallback local:', err);
             }
 
             // Fallback match in sample records if not found via API
             if (!athlete) {
-                const cleanId = String(identifier).toLowerCase().replace(/[^a-z0-9]/g, '');
-                athlete = SAMPLE_ATHLETES.find(a => 
-                    String(a.id) === String(identifier) ||
-                    a.cedula.toLowerCase().replace(/[^a-z0-9]/g, '').includes(cleanId) ||
-                    a.nombreCompleto.toLowerCase().includes(String(identifier).toLowerCase())
-                );
+                athlete = SAMPLE_ATHLETES.find(a => {
+                    const cleanCed = a.cedula.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    return cleanCed === cleanQuery || 
+                           cleanCed.includes(cleanQuery) ||
+                           String(a.id) === String(identifier) ||
+                           a.nombreCompleto.toLowerCase().includes(String(identifier).toLowerCase());
+                });
             }
 
             loadingState.classList.add('hidden');
 
             if (!athlete) {
                 notFoundState.classList.remove('hidden');
-                document.getElementById('notFoundMsg').textContent = `No se encontró ningún atleta registrado con el término "${identifier}".`;
+                document.getElementById('notFoundMsg').textContent = `No se encontró ningún atleta registrado con el documento o nombre "${identifier}".`;
                 return;
             }
 
-            // Render athlete profile
+            // Render athlete profile immediately
             renderAthlete(athlete);
             dashboardContent.classList.remove('hidden');
         }
 
+        // Flags mapping
+        const FLAGS = {
+            "Venezuela": "🇻🇪",
+            "Colombia": "🇨🇴",
+            "España": "🇪🇸",
+            "Estados Unidos": "🇺🇸",
+            "Argentina": "🇦🇷",
+            "Chile": "🇨🇱",
+            "Perú": "🇵🇪",
+            "México": "🇲🇽",
+            "Ecuador": "🇪🇨",
+            "Brasil": "🇧🇷",
+            "Panamá": "🇵🇦",
+            "República Dominicana": "🇩🇴",
+            "Portugal": "🇵🇹",
+            "Italia": "🇮🇹",
+            "Francia": "🇫🇷",
+            "Alemania": "🇩🇪",
+            "Uruguay": "🇺🇾"
+        };
+
         // Render all dashboard widgets and charts
         function renderAthlete(p) {
-            document.title = `${p.nombreCompleto} | Ficha Técnica TOPSPIN Academy & Club`;
+            const fullName = p.nombreCompleto || `${p.nombre} ${p.apellido}`;
+            document.title = `${fullName} | Ficha Técnica Oficial TOPSPIN`;
 
             // Hero Header
-            document.getElementById('playerName').textContent = p.nombreCompleto || `${p.nombre} ${p.apellido}`;
-            document.getElementById('playerCedula').textContent = p.cedula || 'N/A';
+            document.getElementById('playerName').textContent = fullName;
+            
+            const rawCedula = p.cedula || 'N/A';
+            const tipoDoc = p.tipoDocumento || 'V';
+            const displayCedula = rawCedula.includes('-') ? rawCedula : (tipoDoc ? `${tipoDoc}-${rawCedula}` : rawCedula);
+            document.getElementById('playerCedula').textContent = displayCedula;
+            
             document.getElementById('playerClub').textContent = p.club || 'TOPSPIN Academy & Club';
             document.getElementById('playerCategoryBadge').textContent = p.categoria || 'Primera Categoría';
             document.getElementById('playerAgeBadge').textContent = p.edad || 'Atleta Oficial';
             document.getElementById('playerGenderBadge').textContent = p.genero || 'Masculino';
-            document.getElementById('playerOfficialId').textContent = `TOP-2026-00${p.id || 1}`;
+            document.getElementById('playerOfficialId').textContent = `TOP-${p.cedula || p.id}`;
+
+            // Geographic Location Badge
+            const pais = p.pais || 'Venezuela';
+            const ciudad = p.ciudad || 'Caracas';
+            const estado = p.estado || 'Distrito Capital';
+            const flag = FLAGS[pais] || '🏓';
+            document.getElementById('playerFlag').textContent = flag;
+            document.getElementById('playerLocationText').textContent = `${ciudad}, ${estado} (${pais})`;
 
             // Instagram
             const igEl = document.getElementById('playerInstagram');
-            if (p.instagram && p.instagram.trim() !== '') {
+            if (p.instagram && p.instagram.trim() !== '' && p.instagram !== '@sin_instagram') {
                 igEl.textContent = p.instagram.startsWith('@') ? p.instagram : `@${p.instagram}`;
                 document.getElementById('playerInstagramWrap').classList.remove('hidden');
             } else {
                 document.getElementById('playerInstagramWrap').classList.add('hidden');
             }
 
-            // Photo
+            // Real-time Photo Rendering with instant paint
             const imgEl = document.getElementById('playerPhoto');
             const fallbackEl = document.getElementById('playerAvatarFallback');
             if (p.fotoUrl && p.fotoUrl.trim() !== '') {
+                // Preload to browser cache
+                const preload = new Image();
+                preload.src = p.fotoUrl;
+                preload.onload = () => {
+                    imgEl.src = p.fotoUrl;
+                    imgEl.style.display = 'block';
+                    fallbackEl.classList.add('hidden');
+                };
+                preload.onerror = () => {
+                    imgEl.style.display = 'none';
+                    fallbackEl.classList.remove('hidden');
+                };
+                // Set immediately in case it's already cached
                 imgEl.src = p.fotoUrl;
-                imgEl.classList.remove('hidden');
+                imgEl.style.display = 'block';
                 fallbackEl.classList.add('hidden');
             } else {
-                imgEl.classList.add('hidden');
+                imgEl.style.display = 'none';
                 fallbackEl.classList.remove('hidden');
             }
 
@@ -1014,8 +1093,10 @@
             // Generate Match History Table
             renderMatchHistory(p);
 
-            // Generate Dynamic Live QR Code
-            generateQR(window.location.href);
+            // Generate Dynamic Live QR Code pointing to this clean URL
+            const cleanCedula = p.cedula ? String(p.cedula).replace(/[^a-zA-Z0-9]/g, '') : p.id;
+            const officialProfileUrl = `${window.location.origin}/jugador?id=${cleanCedula}`;
+            generateQR(officialProfileUrl);
         }
 
         // Render Skill Radar Chart (Chart.js)
@@ -1103,7 +1184,7 @@
                 data: {
                     labels: ['Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto 2026'],
                     datasets: [{
-                        label: 'Puntos de Ranking',
+                        label: 'Puntos de Rating Oficial',
                         data: [p6, p5, p4, p3, p2, p1],
                         borderColor: '#E52435',
                         borderWidth: 3,
@@ -1140,7 +1221,7 @@
                             padding: 10,
                             displayColors: false,
                             callbacks: {
-                                label: (ctx) => `${ctx.parsed.y} Puntos Rating WTT`
+                                label: (ctx) => `${ctx.parsed.y} Puntos de Rating Oficial`
                             }
                         }
                     }
@@ -1201,6 +1282,7 @@
         // Live QR Code Generator
         function generateQR(url) {
             const container = document.getElementById('qrContainer');
+            if (!container) return;
             container.innerHTML = '';
             new QRCode(container, {
                 text: url,
