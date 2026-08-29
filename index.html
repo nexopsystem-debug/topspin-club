@@ -533,7 +533,9 @@
                                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
                                     </div>
                                     <p class="error-msg hidden text-[11px] text-brand-red font-medium mt-1">Ingresa tu apellido</p>
-                                      <!-- Cédula de Identidad / ID del Atleta -->
+                                </div>
+
+                                <!-- Cédula de Identidad / ID del Atleta -->
                                 <div>
                                     <label for="cedula" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                                         Identificación Oficial (ID / Cédula) <span class="text-brand-red">*</span>
@@ -714,7 +716,7 @@
                         <!-- Bloque 3: Contacto & Redes -->
                         <div>
                             <h4 class="text-xs font-bold uppercase tracking-widest text-brand-crimson pb-2 mb-4 border-b border-slate-100 flex items-center gap-2">
-                                <i class="fa-solid fa-phone"></i> 3. Canales de Contacto"fa-solid fa-phone"></i> 2. Canales de Contacto
+                                <i class="fa-solid fa-phone"></i> 3. Canales de Contacto
                             </h4>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -1163,7 +1165,9 @@
             let currentPhotoBase64 = '';
             let currentPhotoName = '';
 
-            // ================= DICCIONARIO DE ESTADOS Y CIUDADES =================
+            // ================= DICCIONARIO DE ESTADOS Y CIUDADES (BASE DE DATOS MUNDIAL) =================
+            let WORLD_GEO_DATA = null;
+
             const ESTADOS_VENEZUELA = {
                 "Distrito Capital": ["Caracas", "El Recreo", "Sucre", "Libertador", "Antímano", "El Paraíso", "La Candelaria", "San Bernardino"],
                 "Miranda": ["Los Teques", "Chacao", "Baruta", "El Hatillo", "Sucre (Petare)", "Guarenas", "Guatire", "San Antonio de los Altos", "Charallave", "Cúa", "Ocumare del Tuy", "Santa Teresa", "Higuerote", "Río Chico", "Caucagua"],
@@ -1191,32 +1195,13 @@
                 "Amazonas": ["Puerto Ayacucho", "San Fernando de Atabapo", "Maroa"]
             };
 
-            const ESTADOS_INTERNACIONALES = {
-                "Colombia": {
-                    "Bogotá D.C.": ["Bogotá"],
-                    "Antioquia": ["Medellín", "Envigado", "Bello", "Itagüí", "Rionegro"],
-                    "Valle del Cauca": ["Cali", "Palmira", "Buenaventura", "Tuluá", "Buga"],
-                    "Atlántico": ["Barranquilla", "Soledad", "Malambo"],
-                    "Santander": ["Bucaramanga", "Floridablanca", "Girón", "Piedecuesta"],
-                    "Bolívar": ["Cartagena de Indias", "Magangué", "Turbaco"],
-                    "Norte de Santander": ["Cúcuta", "Ocaña", "Pamplona", "Villa del Rosario"]
-                },
-                "España": {
-                    "Madrid": ["Madrid", "Alcalá de Henares", "Móstoles", "Getafe", "Leganés"],
-                    "Cataluña": ["Barcelona", "Hospitalet", "Badalona", "Terrassa", "Sabadell"],
-                    "Andalucía": ["Sevilla", "Málaga", "Granada", "Córdoba", "Cádiz", "Almería"],
-                    "Comunidad Valenciana": ["Valencia", "Alicante", "Elche", "Castellón"],
-                    "Galicia": ["A Coruña", "Vigo", "Santiago de Compostela", "Ourense"],
-                    "Islas Canarias": ["Las Palmas de Gran Canaria", "Santa Cruz de Tenerife"]
-                },
-                "Estados Unidos": {
-                    "Florida": ["Miami", "Orlando", "Tampa", "Fort Lauderdale", "Jacksonville", "Doral"],
-                    "Texas": ["Houston", "Dallas", "Austin", "San Antonio", "Fort Worth", "El Paso"],
-                    "New York": ["New York City", "Buffalo", "Rochester", "Albany", "Syracuse"],
-                    "California": ["Los Angeles", "San Francisco", "San Diego", "San Jose", "Sacramento"],
-                    "Georgia": ["Atlanta", "Savannah", "Augusta"],
-                    "North Carolina": ["Charlotte", "Raleigh", "Greensboro"]
-                }
+            const FLAGS = {
+                "Venezuela": "🇻🇪", "Colombia": "🇨🇴", "España": "🇪🇸", "Estados Unidos": "🇺🇸", "Argentina": "🇦🇷",
+                "Chile": "🇨🇱", "Perú": "🇵🇪", "México": "🇲🇽", "Ecuador": "🇪🇨", "Brasil": "🇧🇷",
+                "Panamá": "🇵🇦", "República Dominicana": "🇩🇴", "Portugal": "🇵🇹", "Italia": "🇮🇹", "Francia": "🇫🇷",
+                "Alemania": "🇩🇪", "Uruguay": "🇺🇾", "Bolivia": "🇧🇴", "Paraguay": "🇵🇾", "Costa Rica": "🇨🇷",
+                "Guatemala": "🇬🇹", "Honduras": "🇭🇳", "El Salvador": "🇸🇻", "Nicaragua": "🇳🇮", "Cuba": "🇨🇺",
+                "Puerto Rico": "🇵🇷", "Canadá": "🇨🇦", "Reino Unido": "🇬🇧", "China": "🇨🇳", "Japón": "🇯🇵"
             };
 
             function actualizarEstados() {
@@ -1224,23 +1209,24 @@
                 estadoSelect.innerHTML = '<option value="" disabled selected>Selecciona un estado / provincia</option>';
                 ciudadSelect.innerHTML = '<option value="" disabled selected>Selecciona una ciudad</option>';
 
-                if (pais === "Venezuela") {
-                    Object.keys(ESTADOS_VENEZUELA).forEach(estado => {
+                let statesList = [];
+                if (WORLD_GEO_DATA && WORLD_GEO_DATA[pais] && WORLD_GEO_DATA[pais].states) {
+                    statesList = Object.keys(WORLD_GEO_DATA[pais].states).sort((a, b) => a.localeCompare(b, 'es'));
+                } else if (pais === "Venezuela") {
+                    statesList = Object.keys(ESTADOS_VENEZUELA);
+                }
+
+                if (statesList.length > 0) {
+                    statesList.forEach(estado => {
                         const opt = document.createElement('option');
                         opt.value = estado;
                         opt.textContent = estado;
-                        if (estado === "Distrito Capital") opt.selected = true;
+                        if (pais === "Venezuela" && estado === "Distrito Capital") opt.selected = true;
                         estadoSelect.appendChild(opt);
                     });
-                    actualizarCiudades();
-                } else if (ESTADOS_INTERNACIONALES[pais]) {
-                    Object.keys(ESTADOS_INTERNACIONALES[pais]).forEach(estado => {
-                        const opt = document.createElement('option');
-                        opt.value = estado;
-                        opt.textContent = estado;
-                        estadoSelect.appendChild(opt);
-                    });
-                    estadoSelect.selectedIndex = 1;
+                    if (pais !== "Venezuela" && statesList.length > 0) {
+                        estadoSelect.selectedIndex = 1;
+                    }
                     actualizarCiudades();
                 } else {
                     const opt = document.createElement('option');
@@ -1263,10 +1249,10 @@
                 ciudadSelect.innerHTML = '<option value="" disabled selected>Selecciona una ciudad</option>';
 
                 let ciudades = [];
-                if (pais === "Venezuela" && ESTADOS_VENEZUELA[estado]) {
+                if (WORLD_GEO_DATA && WORLD_GEO_DATA[pais] && WORLD_GEO_DATA[pais].states && WORLD_GEO_DATA[pais].states[estado]) {
+                    ciudades = WORLD_GEO_DATA[pais].states[estado];
+                } else if (pais === "Venezuela" && ESTADOS_VENEZUELA[estado]) {
                     ciudades = ESTADOS_VENEZUELA[estado];
-                } else if (ESTADOS_INTERNACIONALES[pais] && ESTADOS_INTERNACIONALES[pais][estado]) {
-                    ciudades = ESTADOS_INTERNACIONALES[pais][estado];
                 }
 
                 if (ciudades.length > 0) {
@@ -1302,8 +1288,51 @@
 
             estadoSelect?.addEventListener('change', actualizarCiudades);
 
-            // Inicializar estados y ciudades por defecto en Venezuela
+            // Inicializar estados y ciudades inmediatas por defecto
             actualizarEstados();
+
+            // Carga asíncrona de la base de datos mundial (196 países, 3497 estados, 150440 ciudades)
+            fetch('data/paises-estados-ciudades.json')
+                .then(res => res.json())
+                .then(data => {
+                    WORLD_GEO_DATA = data;
+                    const currentSelected = paisSelect.value || "Venezuela";
+                    paisSelect.innerHTML = '';
+
+                    const priorityCountries = ["Venezuela", "Colombia", "España", "Estados Unidos", "Argentina", "Chile", "Perú", "México", "Ecuador", "Brasil", "Panamá", "República Dominicana", "Portugal", "Italia", "Francia", "Alemania", "Uruguay", "Bolivia", "Paraguay", "Costa Rica"];
+                    
+                    const optGroupFav = document.createElement('optgroup');
+                    optGroupFav.label = "── Países Frecuentes ──";
+                    
+                    priorityCountries.forEach(cName => {
+                        if (WORLD_GEO_DATA[cName] || cName === "Venezuela") {
+                            const opt = document.createElement('option');
+                            opt.value = cName;
+                            const flag = FLAGS[cName] || '';
+                            opt.textContent = `${cName} ${flag}`.trim();
+                            if (cName === currentSelected) opt.selected = true;
+                            optGroupFav.appendChild(opt);
+                        }
+                    });
+                    paisSelect.appendChild(optGroupFav);
+
+                    const optGroupAll = document.createElement('optgroup');
+                    optGroupAll.label = "── Todos los Países del Mundo (A - Z) ──";
+                    
+                    const allSorted = Object.keys(WORLD_GEO_DATA).sort((a, b) => a.localeCompare(b, 'es'));
+                    allSorted.forEach(cName => {
+                        const opt = document.createElement('option');
+                        opt.value = cName;
+                        const flag = FLAGS[cName] || '';
+                        opt.textContent = `${cName} ${flag}`.trim();
+                        optGroupAll.appendChild(opt);
+                    });
+                    paisSelect.appendChild(optGroupAll);
+
+                    paisSelect.value = currentSelected;
+                    actualizarEstados();
+                })
+                .catch(err => console.log('Aviso: usando base local de Venezuela para ubicaciones:', err));
 
             function calcularEdad(fechaString) {
                 if (!fechaString) return null;
