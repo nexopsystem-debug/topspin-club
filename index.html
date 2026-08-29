@@ -774,8 +774,10 @@
                                                 class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
                                             <option value="" disabled selected>Selecciona tu categoría</option>
                                             <optgroup label="Menores y Juveniles">
-                                                <option value="Sub-11 (Iniciación)">Sub-11 (Menor a 11 años)</option>
-                                                <option value="Sub-13 (Infantil)">Sub-13 (11 a 13 años)</option>
+                                                <option value="Sub-7 (Menor a 7 años)">Sub-7 (Menor a 7 años)</option>
+                                                <option value="Sub-9 (7 a 9 años)">Sub-9 (7 a 9 años)</option>
+                                                <option value="Sub-11 (Iniciación)">Sub-11 (10 a 11 años)</option>
+                                                <option value="Sub-13 (Infantil)">Sub-13 (12 a 13 años)</option>
                                                 <option value="Sub-15 (Cadete)">Sub-15 (14 a 15 años)</option>
                                                 <option value="Sub-19 (Juvenil)">Sub-19 (16 a 19 años)</option>
                                             </optgroup>
@@ -789,7 +791,9 @@
                                             <optgroup label="Categorías Máster">
                                                 <option value="Máster 40+">Máster 40+ (40 a 49 años)</option>
                                                 <option value="Máster 50+">Máster 50+ (50 a 59 años)</option>
-                                                <option value="Máster 60+">Máster 60+ (60 años o más)</option>
+                                                <option value="Máster 60+">Máster 60+ (60 a 69 años)</option>
+                                                <option value="Máster 70+">Máster 70+ (70 a 79 años)</option>
+                                                <option value="Máster 80+">Máster 80+ (80 años o más)</option>
                                             </optgroup>
                                         </select>
                                         <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
@@ -812,7 +816,7 @@
                                         <select id="clubSelect" name="club" required
                                                 class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all appearance-none cursor-pointer">
                                             <option value="" disabled selected>Seleccione un Club de la lista</option>
-                                            <option value="TOPSPIN Academy & Club" class="font-black text-brand-red">🏓 TOPSPIN Academy & Club (Sede Principal)</option>
+                                            <option value="TOPSPIN Academy & Club" class="font-black text-brand-red">TOPSPIN Academy & Club</option>
                                             <option value="Academia Francisco Lopez">Academia Francisco Lopez</option>
                                             <option value="Academia Navas TT">Academia Navas TT</option>
                                             <option value="Armenio">Armenio</option>
@@ -1316,10 +1320,16 @@
             function sugerirCategoria(edad) {
                 if (edad === null || isNaN(edad) || edad < 0) return;
 
-                if (edad <= 10) {
+                if (edad <= 6) {
+                    categoriaSelect.value = "Sub-7 (Menor a 7 años)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-7 (Menor a 7 años)";
+                } else if (edad >= 7 && edad <= 9) {
+                    categoriaSelect.value = "Sub-9 (7 a 9 años)";
+                    catHelper.textContent = "Sugerida automáticamente: Sub-9 (7 a 9 años)";
+                } else if (edad >= 10 && edad <= 11) {
                     categoriaSelect.value = "Sub-11 (Iniciación)";
-                    catHelper.textContent = "Sugerida automáticamente: Sub-11 (Iniciación)";
-                } else if (edad >= 11 && edad <= 13) {
+                    catHelper.textContent = "Sugerida automáticamente: Sub-11 (10 a 11 años)";
+                } else if (edad >= 12 && edad <= 13) {
                     categoriaSelect.value = "Sub-13 (Infantil)";
                     catHelper.textContent = "Sugerida automáticamente: Sub-13 (Infantil)";
                 } else if (edad >= 14 && edad <= 15) {
@@ -1339,9 +1349,15 @@
                 } else if (edad >= 50 && edad <= 59) {
                     categoriaSelect.value = "Máster 50+";
                     catHelper.textContent = "Sugerida automáticamente: Máster 50+";
-                } else if (edad >= 60) {
+                } else if (edad >= 60 && edad <= 69) {
                     categoriaSelect.value = "Máster 60+";
-                    catHelper.textContent = "Sugerida automáticamente: Máster 60+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 60+ (60 a 69 años)";
+                } else if (edad >= 70 && edad <= 79) {
+                    categoriaSelect.value = "Máster 70+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 70+ (70 a 79 años)";
+                } else if (edad >= 80) {
+                    categoriaSelect.value = "Máster 80+";
+                    catHelper.textContent = "Sugerida automáticamente: Máster 80+ (80 años o más)";
                 }
             }
 
