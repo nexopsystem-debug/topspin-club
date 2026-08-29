@@ -1663,19 +1663,6 @@
             });
         }
 
-            // Radar and Evolution Charts
-            renderRadarChart(p);
-            renderLineChart(pts);
-
-            // Generate Match History Table
-            renderMatchHistory(p);
-
-            // Generate Dynamic Live QR Code pointing to this clean URL
-            const cleanCedula = p.cedula ? String(p.cedula).replace(/[^a-zA-Z0-9]/g, '') : p.id;
-            const officialProfileUrl = `${window.location.origin}/jugador?id=${cleanCedula}`;
-            generateQR(officialProfileUrl);
-        }
-
         // Render Skill Radar Chart (Chart.js)
         function renderRadarChart(p) {
             const ctx = document.getElementById('attributesRadarChart').getContext('2d');
