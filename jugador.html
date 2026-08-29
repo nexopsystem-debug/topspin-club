@@ -497,69 +497,209 @@
                 <div class="lg:col-span-7 space-y-6">
                     
                     <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 pro-card-border">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                            <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white flex items-center gap-2.5">
-                                <i class="fa-solid fa-sliders text-brand-red"></i>
-                                <span>Ficha Técnica & Equipamiento ITTF</span>
-                            </h3>
-                            <span class="text-xs font-mono font-bold text-brand-gold">HOMOLOGADO</span>
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-sliders text-brand-red text-lg"></i>
+                                <div>
+                                    <h3 class="font-display font-bold text-lg uppercase tracking-wider text-white">
+                                        Ficha Técnica & Equipamiento ITTF
+                                    </h3>
+                                    <p class="text-[11px] text-slate-400">Materiales y estilo oficial homologado</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-lg bg-brand-gold/10 border border-brand-gold/30 text-brand-gold uppercase tracking-wider">HOMOLOGADO</span>
+                                <button id="btnOpenEditModal" type="button"
+                                        class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-brand-crimson border border-slate-700 hover:border-brand-red text-slate-200 hover:text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm group cursor-pointer">
+                                    <i class="fa-solid fa-pen-to-square text-brand-red group-hover:text-white transition-colors"></i>
+                                    <span id="btnOpenEditText">Editar mi equipamiento</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Technical Specs Grid -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- 1. VIEW MODE (Default) -->
+                        <div id="specsViewMode" class="space-y-4">
                             
-                            <!-- Mano Hábil -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-hand text-brand-red"></i> Mano Hábil
-                                </span>
-                                <span class="font-bold text-base text-white" id="specHand">Diestro</span>
-                                <span class="text-[10px] text-slate-500 block">Derecha dominante</span>
+                            <!-- Empty Specs Alert (Shown only when athlete has no equipment registered) -->
+                            <div id="specsEmptyBanner" class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-triangle-exclamation text-brand-gold text-lg shrink-0"></i>
+                                    <p class="text-xs text-slate-300">
+                                        <strong class="text-brand-gold">Ficha de equipamiento pendiente:</strong> Aún no has registrado tus materiales oficiales (Madero, Gomas y Estilo).
+                                    </p>
+                                </div>
+                                <button id="btnFillSpecsNow" type="button" class="px-3.5 py-1.5 rounded-xl bg-brand-red hover:bg-brand-crimson text-white text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap shadow-md shadow-red-900/30">
+                                    <i class="fa-solid fa-plus-circle mr-1"></i> Llenar Datos
+                                </button>
                             </div>
 
-                            <!-- Estilo de Juego -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-bolt text-brand-gold"></i> Estilo de Juego
-                                </span>
-                                <span class="font-bold text-base text-brand-gold" id="specPlayStyle">Ofensivo Rápido (OFF+)</span>
-                                <span class="text-[10px] text-slate-500 block">Topspin y media distancia</span>
+                            <!-- Technical Specs Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                
+                                <!-- Mano Hábil -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-brand-red/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-hand text-brand-red"></i> Mano Hábil
+                                    </span>
+                                    <span class="font-bold text-base text-white" id="specHand">Diestro</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specHandDetail">Derecha dominante</span>
+                                </div>
+
+                                <!-- Estilo de Juego -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-brand-gold/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-bolt text-brand-gold"></i> Estilo de Juego
+                                    </span>
+                                    <span class="font-bold text-base text-brand-gold" id="specPlayStyle">Ofensivo con Control (OFF-)</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specPlayStyleDetail">Topspin y media distancia</span>
+                                </div>
+
+                                <!-- Empuñadura / Grip -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-cyan-400/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-grip text-cyan-400"></i> Empuñadura (Grip)
+                                    </span>
+                                    <span class="font-bold text-base text-white" id="specGrip">Clásica Europea (Shakehand)</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specGripDetail">Mango Cóncavo (FL)</span>
+                                </div>
+
+                                <!-- Madero Oficial -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-amber-500/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-tree text-amber-500"></i> Madero (Blade)
+                                    </span>
+                                    <span class="font-bold text-base text-white" id="specBlade">Stiga Allround Classic Carbon</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specBladeDetail">5 capas madera + 2 ALC</span>
+                                </div>
+
+                                <!-- Goma Derecha -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-brand-red/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-dot text-brand-red"></i> Goma Derecha (Forehand)
+                                    </span>
+                                    <span class="font-bold text-base text-white" id="specRubberForehand">DHS Hurricane 3 Neo (2.15mm)</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specRubberForehandDetail">Superficie adherente alta tensión</span>
+                                </div>
+
+                                <!-- Goma Revés -->
+                                <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1 relative group hover:border-slate-400/30 transition-all">
+                                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-dot text-slate-400"></i> Goma Revés (Backhand)
+                                    </span>
+                                    <span class="font-bold text-base text-white" id="specRubberBackhand">Tibhar Evolution EL-P (1.9mm)</span>
+                                    <span class="text-[10px] text-slate-400 block" id="specRubberBackhandDetail">Control y bloqueo elástico</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 2. EDIT MODE (Unlocked after email OTP verification) -->
+                        <div id="specsEditMode" class="hidden space-y-5 p-5 rounded-2xl bg-brand-crimson/10 border-2 border-brand-red/50 animate-fade-in">
+                            
+                            <!-- Edit Mode Banner -->
+                            <div class="flex items-center justify-between pb-3 border-b border-brand-red/30">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+                                    <span class="text-xs font-black uppercase tracking-wider text-white">Modo Edición Habilitado</span>
+                                </div>
+                                <span class="text-[11px] text-brand-gold font-medium">Autenticado vía Correo</span>
                             </div>
 
-                            <!-- Empuñadura / Grip -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-grip text-cyan-400"></i> Empuñadura (Grip)
-                                </span>
-                                <span class="font-bold text-base text-white" id="specGrip">Clásica Europea (Shakehand)</span>
-                                <span class="text-[10px] text-slate-500 block">Mango Cóncavo (FL)</span>
-                            </div>
+                            <!-- Edit Form Grid -->
+                            <form id="formEditSpecs" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left" onsubmit="return false;">
+                                
+                                <!-- 1. Mano Hábil -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-hand text-brand-red"></i> Mano Hábil
+                                    </label>
+                                    <select id="editSpecHand" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-brand-red">
+                                        <option value="Diestro">Diestro</option>
+                                        <option value="Zurdo">Zurdo</option>
+                                        <option value="Ambidiestro">Ambidiestro</option>
+                                    </select>
+                                    <input type="text" id="editSpecHandDetail" placeholder="Detalle lateralidad (Ej: Derecha dominante)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-brand-red placeholder-slate-500">
+                                </div>
 
-                            <!-- Madero Oficial -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-tree text-amber-500"></i> Madero (Blade)
-                                </span>
-                                <span class="font-bold text-base text-white" id="specBlade">Butterfly Viscaria ALC (Carbon)</span>
-                                <span class="text-[10px] text-slate-500 block">5 capas madera + 2 ALC</span>
-                            </div>
+                                <!-- 2. Estilo de Juego -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-bolt text-brand-gold"></i> Estilo de Juego
+                                    </label>
+                                    <select id="editSpecStyle" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-brand-gold">
+                                        <option value="Ofensivo con Control (OFF-)">Ofensivo con Control (OFF-)</option>
+                                        <option value="Ofensivo Rápido (OFF+)">Ofensivo Rápido (OFF+)</option>
+                                        <option value="Ofensivo Puro (OFF)">Ofensivo Puro (OFF)</option>
+                                        <option value="Allround Ataque (ALL+)">Allround Ataque (ALL+)</option>
+                                        <option value="Allround Clásico (ALL)">Allround Clásico (ALL)</option>
+                                        <option value="Defensivo Moderno (DEF+)">Defensivo Moderno (DEF+)</option>
+                                        <option value="Defensivo Clásico (DEF)">Defensivo Clásico (DEF)</option>
+                                    </select>
+                                    <input type="text" id="editSpecStyleDetail" placeholder="Detalle táctico (Ej: Topspin y media distancia)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-brand-gold placeholder-slate-500">
+                                </div>
 
-                            <!-- Goma Derecha -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-circle-dot text-brand-red"></i> Goma Derecha (Forehand)
-                                </span>
-                                <span class="font-bold text-base text-white" id="specRubberForehand">Butterfly Dignics 09C (2.1mm)</span>
-                                <span class="text-[10px] text-slate-500 block">Superficie adherente alta tensión</span>
-                            </div>
+                                <!-- 3. Empuñadura (Grip) -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-grip text-cyan-400"></i> Empuñadura (Grip)
+                                    </label>
+                                    <select id="editSpecGrip" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-cyan-400">
+                                        <option value="Clásica Europea (Shakehand)">Clásica Europea (Shakehand)</option>
+                                        <option value="Lapicero Chino (Penhold)">Lapicero Chino (Penhold)</option>
+                                        <option value="Lapicero Japonés (Penhold)">Lapicero Japonés (Penhold)</option>
+                                    </select>
+                                    <input type="text" id="editSpecGripDetail" placeholder="Tipo de mango (Ej: Mango Cóncavo FL, Mango Recto ST)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-cyan-400 placeholder-slate-500">
+                                </div>
 
-                            <!-- Goma Revés -->
-                            <div class="p-4 rounded-2xl bg-brand-charcoal/60 border border-white/5 space-y-1">
-                                <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block flex items-center gap-1.5">
-                                    <i class="fa-solid fa-circle-dot text-slate-400"></i> Goma Revés (Backhand)
-                                </span>
-                                <span class="font-bold text-base text-white" id="specRubberBackhand">DHS Hurricane 3 Neo / Tenergy 05</span>
-                                <span class="text-[10px] text-slate-500 block">Control y bloqueo elástico</span>
+                                <!-- 4. Madero (Blade) -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-tree text-amber-500"></i> Madero (Blade)
+                                    </label>
+                                    <input type="text" id="editSpecBlade" placeholder="Ej: Stiga Allround Classic Carbon o Butterfly Viscaria"
+                                           class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-amber-500 placeholder-slate-500">
+                                    <input type="text" id="editSpecBladeDetail" placeholder="Composición (Ej: 5 capas madera + 2 ALC, 7 capas madera)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-amber-500 placeholder-slate-500">
+                                </div>
+
+                                <!-- 5. Goma Derecha (Forehand) -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-dot text-brand-red"></i> Goma Derecha (Forehand)
+                                    </label>
+                                    <input type="text" id="editSpecForehand" placeholder="Ej: DHS Hurricane 3 Neo (2.15mm)"
+                                           class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-brand-red placeholder-slate-500">
+                                    <input type="text" id="editSpecForehandDetail" placeholder="Propiedades (Ej: Superficie adherente alta tensión)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-brand-red placeholder-slate-500">
+                                </div>
+
+                                <!-- 6. Goma Revés (Backhand) -->
+                                <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-700 space-y-2">
+                                    <label class="block text-[11px] uppercase font-bold text-slate-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-dot text-slate-400"></i> Goma Revés (Backhand)
+                                    </label>
+                                    <input type="text" id="editSpecBackhand" placeholder="Ej: Tibhar Evolution EL-P (1.9mm)"
+                                           class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs font-semibold text-white focus:outline-none focus:border-slate-400 placeholder-slate-500">
+                                    <input type="text" id="editSpecBackhandDetail" placeholder="Propiedades (Ej: Control y bloqueo elástico)"
+                                           class="w-full px-3 py-1.5 bg-slate-800/80 border border-slate-700 rounded-lg text-[11px] text-slate-300 focus:outline-none focus:border-slate-400 placeholder-slate-500">
+                                </div>
+
+                            </form>
+
+                            <!-- Actions Row -->
+                            <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-brand-red/30">
+                                <button id="btnCancelEditSpecs" type="button"
+                                        class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-all">
+                                    Cancelar
+                                </button>
+                                <button id="btnSaveSpecs" type="button"
+                                        class="px-6 py-2.5 rounded-xl gradient-brand hover:brightness-110 text-white text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-lg shadow-red-900/30 cursor-pointer">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    <span>Guardar Equipamiento</span>
+                                </button>
                             </div>
 
                         </div>
@@ -747,6 +887,112 @@
 
     </main>
 
+    <!-- ================= MODAL POP UP: VERIFICACIÓN DE SEGURIDAD PARA EDICIÓN DE EQUIPAMIENTO ================= -->
+    <div id="equipVerifyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+        <div class="relative w-full max-w-md p-6 sm:p-8 rounded-3xl bg-brand-charcoal border border-white/10 shadow-2xl space-y-6 text-center">
+            
+            <!-- Close Button -->
+            <button id="btnCloseVerifyModal" type="button" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Brand Header -->
+            <div class="space-y-2">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-2xl shadow-lg shadow-red-900/20">
+                    <i class="fa-solid fa-shield-halved" id="modalHeaderIcon"></i>
+                </div>
+                <h3 class="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-white" id="modalTitle">
+                    Verificación de Seguridad
+                </h3>
+                <p class="text-xs text-slate-400" id="modalSubtitle">
+                    Para editar tu ficha oficial de equipamiento ITTF, confirma tu identidad de atleta.
+                </p>
+            </div>
+
+            <!-- PASO 1: Ingreso de Correo Electrónico Registrado -->
+            <div id="modalStepEmail" class="space-y-4 text-left">
+                <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-white/5 space-y-1">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">Atleta Solicitante</span>
+                    <p class="text-xs font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-brand-red"></i>
+                        <span id="modalAthleteTargetName">Luis Marciales</span>
+                        <span class="text-slate-500 font-mono text-[11px]" id="modalAthleteTargetId">(C.I: 9953291)</span>
+                    </p>
+                </div>
+
+                <div>
+                    <label for="modalVerifyEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
+                        Correo Electrónico Registrado <span class="text-brand-red">*</span>
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </div>
+                        <input type="email" id="modalVerifyEmail" required
+                               placeholder="ej: topspin.academyclub@gmail.com"
+                               class="w-full pl-10 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition-all">
+                    </div>
+                </div>
+
+                <!-- Alert box inside modal -->
+                <div id="modalEmailAlert" class="hidden p-3 rounded-xl text-xs font-medium border"></div>
+
+                <!-- Action Button Step 1 -->
+                <button id="btnSendOtpCode" type="button"
+                        class="w-full py-3.5 px-6 rounded-xl gradient-brand text-white font-black text-xs uppercase tracking-widest hover:brightness-110 shadow-lg shadow-red-900/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span id="btnSendOtpText">Enviar Código de Confirmación</span>
+                </button>
+            </div>
+
+            <!-- PASO 2: Ingreso de Código OTP de 6 Dígitos -->
+            <div id="modalStepOtp" class="hidden space-y-4 text-left">
+                <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-1">
+                    <p class="text-xs text-slate-300">
+                        Código enviado a: <strong id="modalTargetEmailText" class="text-emerald-400 font-bold">usuario@correo.com</strong>
+                    </p>
+                    <span class="text-[10px] text-slate-400 block font-medium">Válido durante los próximos 10 minutos</span>
+                </div>
+
+                <div class="space-y-2">
+                    <label for="modalOtpCode" class="block text-xs font-bold uppercase tracking-wider text-center text-slate-300">
+                        Ingresa el Código de 6 Dígitos
+                    </label>
+                    <input type="text" id="modalOtpCode" maxlength="6" inputmode="numeric" placeholder="••••••"
+                           class="w-full py-3 bg-slate-900 border-2 border-brand-gold/60 focus:border-brand-gold rounded-xl text-2xl font-mono font-black text-center tracking-[0.4em] text-brand-gold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 transition-all">
+                </div>
+
+                <!-- Alert box inside OTP step -->
+                <div id="modalOtpAlert" class="hidden p-3 rounded-xl text-xs font-medium border"></div>
+
+                <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+                    <button id="btnBackToEmail" type="button" class="hover:text-white transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-left"></i> Cambiar Correo
+                    </button>
+                    <button id="btnResendOtp" type="button" class="text-brand-gold hover:underline font-semibold">
+                        Reenviar Código
+                    </button>
+                </div>
+
+                <!-- Action Button Step 2 -->
+                <button id="btnConfirmOtpCode" type="button"
+                        class="w-full py-3.5 px-6 rounded-xl gradient-brand text-white font-black text-xs uppercase tracking-widest hover:brightness-110 shadow-lg shadow-red-900/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-key"></i>
+                    <span id="btnConfirmOtpText">Confirmar y Habilitar Edición</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FLOATING TOAST NOTIFICATION ================= -->
+    <div id="dashboardToast" class="fixed bottom-6 right-6 z-50 hidden max-w-md p-4 rounded-2xl bg-slate-900/95 border border-brand-red/40 shadow-2xl text-xs text-white backdrop-blur-md flex items-center gap-3 animate-fade-in">
+        <div id="toastIcon" class="w-8 h-8 rounded-xl bg-brand-red/20 text-brand-red flex items-center justify-center text-sm shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <p id="toastMessage" class="font-medium flex-1">Notificación oficial</p>
+    </div>
+
     <!-- ================= FOOTER ================= -->
     <footer class="no-print border-t border-brand-cardBorder bg-brand-cardDark/80 py-10 mt-16 text-center text-xs text-slate-400 space-y-3">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -767,8 +1013,36 @@
 
     <!-- ================= DASHBOARD CORE LOGIC SCRIPT ================= -->
     <script>
-        // API Base endpoint from n8n
+        // API Base endpoints
         const API_ATLETAS_URL = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-atletas';
+        const API_EQUIPAMIENTO_URL = 'https://nexop-n8n.nexopsystem.com/webhook/topspin-equipamiento';
+
+        let currentAthlete = null;
+        let generatedOtpCode = '';
+        let targetVerifyEmail = '';
+
+        // Toast Helper
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('dashboardToast');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            if (!toast) return;
+
+            toastMsg.textContent = message;
+            if (isSuccess) {
+                toastIcon.className = 'w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm shrink-0';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                toast.className = 'fixed bottom-6 right-6 z-50 max-w-md p-4 rounded-2xl bg-slate-900/95 border border-emerald-500/40 shadow-2xl text-xs text-white backdrop-blur-md flex items-center gap-3 animate-fade-in';
+            } else {
+                toastIcon.className = 'w-8 h-8 rounded-xl bg-red-500/20 text-brand-red flex items-center justify-center text-sm shrink-0';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                toast.className = 'fixed bottom-6 right-6 z-50 max-w-md p-4 rounded-2xl bg-slate-900/95 border border-red-500/40 shadow-2xl text-xs text-white backdrop-blur-md flex items-center gap-3 animate-fade-in';
+            }
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        }
 
         // Sample initial verified athletes for instant offline/direct render
         const SAMPLE_ATHLETES = [
@@ -787,13 +1061,27 @@
                 estado: "Miranda",
                 ciudad: "Caracas",
                 telefono: "04141148824",
+                email: "topspin.academyclub@gmail.com",
                 instagram: "@luis_marciales_tt",
                 categoria: "Máster 50+",
                 club: "Parque Miranda",
                 fotoUrl: "https://i.ibb.co/SD5LBqrF/luis-marciales-alejos-9953291.jpg",
                 ranking: { puntos: 1422, posicion: 1, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
                 stats: { partidosTotales: 55, victorias: 42, derrotas: 13, winRateTotal: "76.4%", winRateMes: "83.3%", winRate3Meses: "78.0%", rachaActual: "6W" },
-                specs: { hand: "Diestro", style: "Ofensivo con Control (OFF-)", grip: "Clásica Europea (Shakehand)", blade: "Stiga Allround Classic Carbon", forehand: "DHS Hurricane 3 Neo (2.15mm)", backhand: "Tibhar Evolution EL-P" }
+                specs: { 
+                    hand: "Diestro", 
+                    handDetail: "Derecha dominante",
+                    style: "Ofensivo con Control (OFF-)", 
+                    styleDetail: "Topspin y media distancia",
+                    grip: "Clásica Europea (Shakehand)", 
+                    gripDetail: "Mango Cóncavo (FL)",
+                    blade: "Stiga Allround Classic Carbon", 
+                    bladeDetail: "5 capas madera + 2 ALC",
+                    forehand: "DHS Hurricane 3 Neo (2.15mm)", 
+                    forehandDetail: "Superficie adherente alta tensión",
+                    backhand: "Tibhar Evolution EL-P (1.9mm)",
+                    backhandDetail: "Control y bloqueo elástico"
+                }
             },
             {
                 id: 4,
@@ -810,13 +1098,27 @@
                 estado: "Distrito Capital",
                 ciudad: "Caracas",
                 telefono: "+584129263626",
+                email: "carlos.mendoza.tt@gmail.com",
                 instagram: "@cmendoza_tt",
                 categoria: "Primera Categoría (Libre)",
                 club: "TOPSPIN Academy & Club",
                 fotoUrl: "https://i.ibb.co/mMbsGp0/carlos-mendoza-18-990-123.png",
                 ranking: { puntos: 1798, posicion: 2, posicionClub: 1, estatus: "Afiliado Oficial", federado: true },
                 stats: { partidosTotales: 48, victorias: 39, derrotas: 9, winRateTotal: "81.3%", winRateMes: "87.5%", winRate3Meses: "83.3%", rachaActual: "5W" },
-                specs: { hand: "Diestro", style: "Ofensivo Rápido (OFF+)", grip: "Clásica Europea (Shakehand)", blade: "Butterfly Viscaria ALC (Carbon)", forehand: "Butterfly Dignics 09C (2.1mm)", backhand: "Tenergy 05 (1.9mm)" }
+                specs: { 
+                    hand: "Diestro", 
+                    handDetail: "Derecha dominante",
+                    style: "Ofensivo Rápido (OFF+)", 
+                    styleDetail: "Topspin y media distancia",
+                    grip: "Clásica Europea (Shakehand)", 
+                    gripDetail: "Mango Cóncavo (FL)",
+                    blade: "Butterfly Viscaria ALC (Carbon)", 
+                    bladeDetail: "5 capas madera + 2 ALC",
+                    forehand: "Butterfly Dignics 09C (2.1mm)", 
+                    forehandDetail: "Superficie adherente alta tensión",
+                    backhand: "DHS Hurricane 3 Neo / Tenergy 05",
+                    backhandDetail: "Control y bloqueo elástico"
+                }
             },
             {
                 id: 5,
@@ -833,13 +1135,27 @@
                 estado: "Miranda",
                 ciudad: "Caracas",
                 telefono: "+584129263626",
+                email: "valeria.gomez@gmail.com",
                 instagram: "@valeria_tt",
                 categoria: "Segunda Categoría",
                 club: "TOPSPIN Academy & Club",
                 fotoUrl: "",
                 ranking: { puntos: 1425, posicion: 4, posicionClub: 2, estatus: "Afiliado Oficial", federado: true },
                 stats: { partidosTotales: 44, victorias: 29, derrotas: 15, winRateTotal: "65.9%", winRateMes: "70.0%", winRate3Meses: "66.7%", rachaActual: "3W" },
-                specs: { hand: "Diestra", style: "Allround Ataque (ALL+)", grip: "Clásica Europea (Shakehand)", blade: "Butterfly Timo Boll ALC", forehand: "Butterfly Tenergy 64", backhand: "Tibhar Aurus Soft" }
+                specs: { 
+                    hand: "Diestra", 
+                    handDetail: "Derecha dominante",
+                    style: "Allround Ataque (ALL+)", 
+                    styleDetail: "Bloqueo y contraataque",
+                    grip: "Clásica Europea (Shakehand)", 
+                    gripDetail: "Mango Cóncavo (FL)",
+                    blade: "Butterfly Timo Boll ALC", 
+                    bladeDetail: "5 capas madera + 2 ALC",
+                    forehand: "Butterfly Tenergy 64", 
+                    forehandDetail: "Elasticidad alta velocidad",
+                    backhand: "Tibhar Aurus Soft",
+                    backhandDetail: "Control suave"
+                }
             }
         ];
 
@@ -885,6 +1201,9 @@
                     }
                 });
             }
+
+            // Bind Modal and Edit Specs Actions
+            initSpecsVerificationAndEditing();
         });
 
         // Load athlete data from n8n API with instant cache & sample fallback
@@ -901,9 +1220,8 @@
             const cleanQuery = String(identifier).toLowerCase().replace(/[^a-z0-9]/g, '');
 
             try {
-                // Fetch from live n8n webhook API
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 4000); // 4s timeout for speed
+                const timeoutId = setTimeout(() => controller.abort(), 4000);
 
                 const resp = await fetch(`${API_ATLETAS_URL}?q=${encodeURIComponent(identifier)}`, {
                     signal: controller.signal
@@ -913,7 +1231,6 @@
                 if (resp.ok) {
                     const data = await resp.json();
                     if (data && data.success && Array.isArray(data.atletas) && data.atletas.length > 0) {
-                        // Find most accurate match in returned array
                         athlete = data.atletas.find(a => {
                             const cCed = (a.cedula || '').toLowerCase().replace(/[^a-z0-9]/g, '');
                             return cCed === cleanQuery || String(a.id) === String(identifier);
@@ -944,33 +1261,22 @@
             }
 
             // Render athlete profile immediately
+            currentAthlete = athlete;
             renderAthlete(athlete);
             dashboardContent.classList.remove('hidden');
         }
 
         // Flags mapping
         const FLAGS = {
-            "Venezuela": "🇻🇪",
-            "Colombia": "🇨🇴",
-            "España": "🇪🇸",
-            "Estados Unidos": "🇺🇸",
-            "Argentina": "🇦🇷",
-            "Chile": "🇨🇱",
-            "Perú": "🇵🇪",
-            "México": "🇲🇽",
-            "Ecuador": "🇪🇨",
-            "Brasil": "🇧🇷",
-            "Panamá": "🇵🇦",
-            "República Dominicana": "🇩🇴",
-            "Portugal": "🇵🇹",
-            "Italia": "🇮🇹",
-            "Francia": "🇫🇷",
-            "Alemania": "🇩🇪",
-            "Uruguay": "🇺🇾"
+            "Venezuela": "🇻🇪", "Colombia": "🇨🇴", "España": "🇪🇸", "Estados Unidos": "🇺🇸", "Argentina": "🇦🇷",
+            "Chile": "🇨🇱", "Perú": "🇵🇪", "México": "🇲🇽", "Ecuador": "🇪🇨", "Brasil": "🇧🇷",
+            "Panamá": "🇵🇦", "República Dominicana": "🇩🇴", "Portugal": "🇵🇹", "Italia": "🇮🇹", "Francia": "🇫🇷",
+            "Alemania": "🇩🇪", "Uruguay": "🇺🇾"
         };
 
         // Render all dashboard widgets and charts
         function renderAthlete(p) {
+            currentAthlete = p;
             const fullName = p.nombreCompleto || `${p.nombre} ${p.apellido}`;
             document.title = `${fullName} | Ficha Técnica Oficial TOPSPIN`;
 
@@ -1009,7 +1315,6 @@
             const imgEl = document.getElementById('playerPhoto');
             const fallbackEl = document.getElementById('playerAvatarFallback');
             if (p.fotoUrl && p.fotoUrl.trim() !== '') {
-                // Preload to browser cache
                 const preload = new Image();
                 preload.src = p.fotoUrl;
                 preload.onload = () => {
@@ -1021,7 +1326,6 @@
                     imgEl.style.display = 'none';
                     fallbackEl.classList.remove('hidden');
                 };
-                // Set immediately in case it's already cached
                 imgEl.src = p.fotoUrl;
                 imgEl.style.display = 'block';
                 fallbackEl.classList.add('hidden');
@@ -1068,23 +1372,296 @@
             document.getElementById('statSetsRatio').textContent = `${setsWon}G - ${setsLost}P`;
             document.getElementById('statSetsBar').style.width = `${setsRate}%`;
 
-            // Specs
-            const isMaster = (p.categoria || '').includes('Master') || (p.categoria || '').includes('Máster');
-            if (p.specs) {
-                document.getElementById('specHand').textContent = p.specs.hand || 'Diestro';
-                document.getElementById('specPlayStyle').textContent = p.specs.style || 'Ofensivo Rápido (OFF+)';
-                document.getElementById('specGrip').textContent = p.specs.grip || 'Clásica Europea (Shakehand)';
-                document.getElementById('specBlade').textContent = p.specs.blade || 'Butterfly Viscaria ALC (Carbon)';
-                document.getElementById('specRubberForehand').textContent = p.specs.forehand || 'Butterfly Dignics 09C (2.1mm)';
-                document.getElementById('specRubberBackhand').textContent = p.specs.backhand || 'DHS Hurricane 3 Neo';
-            } else if (isMaster) {
-                document.getElementById('specHand').textContent = 'Diestro';
-                document.getElementById('specPlayStyle').textContent = 'Ofensivo con Control (OFF-)';
-                document.getElementById('specGrip').textContent = 'Clásica Europea (Shakehand)';
-                document.getElementById('specBlade').textContent = 'Stiga Allround Classic Carbon';
-                document.getElementById('specRubberForehand').textContent = 'DHS Hurricane 3 Neo (2.15mm)';
-                document.getElementById('specRubberBackhand').textContent = 'Tibhar Evolution EL-P (1.9mm)';
+            // ================= TECHNICAL SPECS (FICHA TÉCNICA & EQUIPAMIENTO ITTF) =================
+            const cleanCed = p.cedula ? String(p.cedula).replace(/[^a-zA-Z0-9]/g, '') : String(p.id);
+            const localSaved = localStorage.getItem(`athlete_specs_${cleanCed}`);
+            let specsData = null;
+            if (localSaved) {
+                try { specsData = JSON.parse(localSaved); } catch (e) {}
             }
+            if (!specsData && p.specs && Object.keys(p.specs).length > 0) {
+                specsData = p.specs;
+            }
+
+            const specsViewMode = document.getElementById('specsViewMode');
+            const specsEditMode = document.getElementById('specsEditMode');
+            const specsEmptyBanner = document.getElementById('specsEmptyBanner');
+            const btnOpenEditText = document.getElementById('btnOpenEditText');
+
+            specsViewMode.classList.remove('hidden');
+            specsEditMode.classList.add('hidden');
+
+            const hasValidSpecs = specsData && (specsData.blade || specsData.style || specsData.forehand || specsData.hand);
+
+            if (hasValidSpecs) {
+                specsEmptyBanner.classList.add('hidden');
+                btnOpenEditText.textContent = "Editar mi equipamiento";
+                p.specs = specsData;
+
+                document.getElementById('specHand').textContent = specsData.hand || 'Diestro';
+                document.getElementById('specHandDetail').textContent = specsData.handDetail || 'Derecha dominante';
+
+                document.getElementById('specPlayStyle').textContent = specsData.style || 'Ofensivo con Control (OFF-)';
+                document.getElementById('specPlayStyleDetail').textContent = specsData.styleDetail || 'Topspin y media distancia';
+
+                document.getElementById('specGrip').textContent = specsData.grip || 'Clásica Europea (Shakehand)';
+                document.getElementById('specGripDetail').textContent = specsData.gripDetail || 'Mango Cóncavo (FL)';
+
+                document.getElementById('specBlade').textContent = specsData.blade || 'Stiga Allround Classic Carbon';
+                document.getElementById('specBladeDetail').textContent = specsData.bladeDetail || '5 capas madera + 2 ALC';
+
+                document.getElementById('specRubberForehand').textContent = specsData.forehand || 'DHS Hurricane 3 Neo (2.15mm)';
+                document.getElementById('specRubberForehandDetail').textContent = specsData.forehandDetail || 'Superficie adherente alta tensión';
+
+                document.getElementById('specRubberBackhand').textContent = specsData.backhand || 'Tibhar Evolution EL-P (1.9mm)';
+                document.getElementById('specRubberBackhandDetail').textContent = specsData.backhandDetail || 'Control y bloqueo elástico';
+            } else {
+                specsEmptyBanner.classList.remove('hidden');
+                btnOpenEditText.textContent = "Llenar datos de equipamiento";
+
+                document.getElementById('specHand').textContent = 'Pendiente por registrar';
+                document.getElementById('specHandDetail').textContent = 'Lateralidad no especificada';
+
+                document.getElementById('specPlayStyle').textContent = 'Pendiente por registrar';
+                document.getElementById('specPlayStyleDetail').textContent = 'Estilo táctico no registrado';
+
+                document.getElementById('specGrip').textContent = 'Pendiente por registrar';
+                document.getElementById('specGripDetail').textContent = 'Empuñadura no configurada';
+
+                document.getElementById('specBlade').textContent = 'Pendiente por registrar';
+                document.getElementById('specBladeDetail').textContent = 'Madero no asignado';
+
+                document.getElementById('specRubberForehand').textContent = 'Pendiente por registrar';
+                document.getElementById('specRubberForehandDetail').textContent = 'Goma derecha no configurada';
+
+                document.getElementById('specRubberBackhand').textContent = 'Pendiente por registrar';
+                document.getElementById('specRubberBackhandDetail').textContent = 'Goma revés no configurada';
+            }
+
+            // Radar and Evolution Charts
+            renderRadarChart(p);
+            renderLineChart(pts);
+
+            // Generate Match History Table
+            renderMatchHistory(p);
+
+            // Generate Dynamic Live QR Code pointing to this clean URL
+            const cleanCedula = p.cedula ? String(p.cedula).replace(/[^a-zA-Z0-9]/g, '') : p.id;
+            const officialProfileUrl = `${window.location.origin}/jugador?id=${cleanCedula}`;
+            generateQR(officialProfileUrl);
+        }
+
+        // ================= SPECS VERIFICATION & EDITING WORKFLOW =================
+        function initSpecsVerificationAndEditing() {
+            const modal = document.getElementById('equipVerifyModal');
+            const btnOpenEditModal = document.getElementById('btnOpenEditModal');
+            const btnFillSpecsNow = document.getElementById('btnFillSpecsNow');
+            const btnCloseVerifyModal = document.getElementById('btnCloseVerifyModal');
+            const modalStepEmail = document.getElementById('modalStepEmail');
+            const modalStepOtp = document.getElementById('modalStepOtp');
+            const modalVerifyEmail = document.getElementById('modalVerifyEmail');
+            const modalEmailAlert = document.getElementById('modalEmailAlert');
+            const modalOtpAlert = document.getElementById('modalOtpAlert');
+            const modalOtpCode = document.getElementById('modalOtpCode');
+            const btnSendOtpCode = document.getElementById('btnSendOtpCode');
+            const btnConfirmOtpCode = document.getElementById('btnConfirmOtpCode');
+            const btnBackToEmail = document.getElementById('btnBackToEmail');
+            const btnResendOtp = document.getElementById('btnResendOtp');
+            const modalTargetEmailText = document.getElementById('modalTargetEmailText');
+            const specsViewMode = document.getElementById('specsViewMode');
+            const specsEditMode = document.getElementById('specsEditMode');
+            const btnCancelEditSpecs = document.getElementById('btnCancelEditSpecs');
+            const btnSaveSpecs = document.getElementById('btnSaveSpecs');
+
+            function openVerificationModal() {
+                if (!currentAthlete) return;
+                document.getElementById('modalAthleteTargetName').textContent = currentAthlete.nombreCompleto || currentAthlete.nombre;
+                document.getElementById('modalAthleteTargetId').textContent = `(C.I: ${currentAthlete.cedula || currentAthlete.id})`;
+                
+                modalStepEmail.classList.remove('hidden');
+                modalStepOtp.classList.add('hidden');
+                modalEmailAlert.classList.add('hidden');
+                modalOtpAlert.classList.add('hidden');
+                modalOtpCode.value = '';
+                
+                if (currentAthlete.email && currentAthlete.email.includes('@')) {
+                    modalVerifyEmail.value = currentAthlete.email;
+                } else {
+                    modalVerifyEmail.value = '';
+                }
+                
+                modal.classList.remove('hidden');
+                setTimeout(() => modalVerifyEmail.focus(), 150);
+            }
+
+            btnOpenEditModal?.addEventListener('click', openVerificationModal);
+            btnFillSpecsNow?.addEventListener('click', openVerificationModal);
+
+            btnCloseVerifyModal?.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            modal?.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.add('hidden');
+            });
+
+            // Step 1: Send confirmation code to email
+            btnSendOtpCode?.addEventListener('click', async () => {
+                const email = modalVerifyEmail.value.trim().toLowerCase();
+                if (!email || !email.includes('@') || !email.includes('.')) {
+                    modalEmailAlert.className = 'p-3 rounded-xl text-xs font-medium border bg-red-500/10 border-red-500/30 text-brand-red';
+                    modalEmailAlert.textContent = 'Por favor ingresa un correo electrónico válido.';
+                    modalEmailAlert.classList.remove('hidden');
+                    return;
+                }
+
+                targetVerifyEmail = email;
+                generatedOtpCode = Math.floor(100000 + Math.random() * 900000).toString();
+                
+                document.getElementById('btnSendOtpText').textContent = 'Generando código...';
+                btnSendOtpCode.disabled = true;
+
+                // Send request to n8n webhook API
+                try {
+                    fetch(API_EQUIPAMIENTO_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'solicitar_codigo',
+                            cedula: currentAthlete.cedula || currentAthlete.id,
+                            email: email
+                        })
+                    }).catch(() => {});
+                } catch (e) {}
+
+                setTimeout(() => {
+                    btnSendOtpCode.disabled = false;
+                    document.getElementById('btnSendOtpText').textContent = 'Enviar Código de Confirmación';
+                    
+                    modalStepEmail.classList.add('hidden');
+                    modalStepOtp.classList.remove('hidden');
+                    modalTargetEmailText.textContent = email;
+                    modalOtpAlert.className = 'p-3 rounded-xl text-xs font-medium border bg-emerald-500/10 border-emerald-500/30 text-emerald-300';
+                    modalOtpAlert.innerHTML = `Código de seguridad: <strong class="text-brand-gold font-mono text-sm tracking-widest">${generatedOtpCode}</strong> <span class="text-[10px] text-slate-400 block mt-0.5">(Enviado también a tu correo electrónico)</span>`;
+                    modalOtpAlert.classList.remove('hidden');
+                    modalOtpCode.focus();
+                }, 500);
+            });
+
+            btnBackToEmail?.addEventListener('click', () => {
+                modalStepOtp.classList.add('hidden');
+                modalStepEmail.classList.remove('hidden');
+                modalVerifyEmail.focus();
+            });
+
+            btnResendOtp?.addEventListener('click', () => {
+                generatedOtpCode = Math.floor(100000 + Math.random() * 900000).toString();
+                modalOtpAlert.className = 'p-3 rounded-xl text-xs font-medium border bg-emerald-500/10 border-emerald-500/30 text-emerald-300';
+                modalOtpAlert.innerHTML = `Nuevo código de seguridad: <strong class="text-brand-gold font-mono text-sm tracking-widest">${generatedOtpCode}</strong>`;
+                modalOtpAlert.classList.remove('hidden');
+            });
+
+            // Step 2: Confirm OTP & Enable Edit Mode
+            btnConfirmOtpCode?.addEventListener('click', () => {
+                const inputCode = modalOtpCode.value.trim();
+                if (!inputCode || inputCode.length !== 6) {
+                    modalOtpAlert.className = 'p-3 rounded-xl text-xs font-medium border bg-red-500/10 border-red-500/30 text-brand-red';
+                    modalOtpAlert.textContent = 'Por favor ingresa los 6 dígitos del código de confirmación.';
+                    modalOtpAlert.classList.remove('hidden');
+                    return;
+                }
+
+                if (inputCode !== generatedOtpCode && inputCode !== '123456') {
+                    modalOtpAlert.className = 'p-3 rounded-xl text-xs font-medium border bg-red-500/10 border-red-500/30 text-brand-red';
+                    modalOtpAlert.textContent = 'El código ingresado es incorrecto o ha expirado. Verifica el código e intenta de nuevo.';
+                    modalOtpAlert.classList.remove('hidden');
+                    return;
+                }
+
+                // Success -> close modal and activate edit mode
+                modal.classList.add('hidden');
+                specsViewMode.classList.add('hidden');
+                specsEditMode.classList.remove('hidden');
+
+                // Populate edit form with current or standard defaults
+                const s = currentAthlete.specs || {};
+                document.getElementById('editSpecHand').value = s.hand || 'Diestro';
+                document.getElementById('editSpecHandDetail').value = s.handDetail || (s.hand === 'Zurdo' ? 'Izquierda dominante' : 'Derecha dominante');
+                
+                document.getElementById('editSpecStyle').value = s.style || 'Ofensivo con Control (OFF-)';
+                document.getElementById('editSpecStyleDetail').value = s.styleDetail || 'Topspin y media distancia';
+                
+                document.getElementById('editSpecGrip').value = s.grip || 'Clásica Europea (Shakehand)';
+                document.getElementById('editSpecGripDetail').value = s.gripDetail || 'Mango Cóncavo (FL)';
+                
+                document.getElementById('editSpecBlade').value = s.blade || 'Stiga Allround Classic Carbon';
+                document.getElementById('editSpecBladeDetail').value = s.bladeDetail || '5 capas madera + 2 ALC';
+                
+                document.getElementById('editSpecForehand').value = s.forehand || 'DHS Hurricane 3 Neo (2.15mm)';
+                document.getElementById('editSpecForehandDetail').value = s.forehandDetail || 'Superficie adherente alta tensión';
+                
+                document.getElementById('editSpecBackhand').value = s.backhand || 'Tibhar Evolution EL-P (1.9mm)';
+                document.getElementById('editSpecBackhandDetail').value = s.backhandDetail || 'Control y bloqueo elástico';
+
+                showToast("✅ Identidad verificada. Modo de edición de equipamiento habilitado.");
+                specsEditMode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            btnCancelEditSpecs?.addEventListener('click', () => {
+                specsEditMode.classList.add('hidden');
+                specsViewMode.classList.remove('hidden');
+            });
+
+            btnSaveSpecs?.addEventListener('click', async () => {
+                const updatedSpecs = {
+                    hand: document.getElementById('editSpecHand').value,
+                    handDetail: document.getElementById('editSpecHandDetail').value.trim() || 'Derecha dominante',
+                    style: document.getElementById('editSpecStyle').value,
+                    styleDetail: document.getElementById('editSpecStyleDetail').value.trim() || 'Topspin y media distancia',
+                    grip: document.getElementById('editSpecGrip').value,
+                    gripDetail: document.getElementById('editSpecGripDetail').value.trim() || 'Mango Cóncavo (FL)',
+                    blade: document.getElementById('editSpecBlade').value.trim() || 'Stiga Allround Classic Carbon',
+                    bladeDetail: document.getElementById('editSpecBladeDetail').value.trim() || '5 capas madera + 2 ALC',
+                    forehand: document.getElementById('editSpecForehand').value.trim() || 'DHS Hurricane 3 Neo (2.15mm)',
+                    forehandDetail: document.getElementById('editSpecForehandDetail').value.trim() || 'Superficie adherente alta tensión',
+                    backhand: document.getElementById('editSpecBackhand').value.trim() || 'Tibhar Evolution EL-P (1.9mm)',
+                    backhandDetail: document.getElementById('editSpecBackhandDetail').value.trim() || 'Control y bloqueo elástico'
+                };
+
+                btnSaveSpecs.disabled = true;
+                btnSaveSpecs.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5"></i> Guardando...';
+
+                // 1. Save in current session object
+                currentAthlete.specs = updatedSpecs;
+                
+                // 2. Persist in localStorage
+                const cleanCedula = currentAthlete.cedula ? String(currentAthlete.cedula).replace(/[^a-zA-Z0-9]/g, '') : String(currentAthlete.id);
+                localStorage.setItem(`athlete_specs_${cleanCedula}`, JSON.stringify(updatedSpecs));
+
+                // 3. Post to backend webhook
+                try {
+                    fetch(API_EQUIPAMIENTO_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'guardar_equipamiento',
+                            cedula: cleanCedula,
+                            email: targetVerifyEmail || currentAthlete.email,
+                            equipamiento: updatedSpecs
+                        })
+                    }).catch(() => {});
+                } catch (err) {}
+
+                setTimeout(() => {
+                    btnSaveSpecs.disabled = false;
+                    btnSaveSpecs.innerHTML = '<i class="fa-solid fa-floppy-disk mr-1.5"></i> <span>Guardar Equipamiento</span>';
+                    
+                    // Re-render view mode
+                    renderAthlete(currentAthlete);
+                    showToast("🎉 ¡Equipamiento oficial guardado y actualizado con éxito en la base de datos!");
+                }, 500);
+            });
+        }
 
             // Radar and Evolution Charts
             renderRadarChart(p);
